@@ -6,8 +6,9 @@ import { LayoutContainer } from './style';
 import Footer from '../footer';
 import Subscription from '../subscription';
 import { useNavBar } from '../../contexts/navbar';
+import Head from 'next/head';
 
-export default function Layout({ children, background }: any) {
+export default function Layout({ children, background, header = "Living Way Ethiopia" }: any) {
     const navbar = useNavBar();
     const onWaypointPositionChange = ({ currentPosition }: any) => {
         if (currentPosition === "above")
@@ -18,6 +19,10 @@ export default function Layout({ children, background }: any) {
 
     return (
         <React.Fragment>
+            <Head>
+                <title>{header}</title>
+                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+            </Head>
             <LayoutContainer background={background}>
                 <Header />
                 <Drawer />

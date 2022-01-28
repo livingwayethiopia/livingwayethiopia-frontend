@@ -43,6 +43,8 @@ query Query($locale: I18NLocaleCode) {
             }
           }
           staffMember {
+            name
+            title
             avatar {
               data {
                 attributes {
@@ -72,6 +74,8 @@ query Query($locale: I18NLocaleCode) {
             }
           }
           staffMember {
+            name
+            title
             avatar {
               data {
                 attributes {
@@ -101,6 +105,8 @@ query Query($locale: I18NLocaleCode) {
             }
           }
           staffMember {
+            name
+            title
             avatar {
               data {
                 attributes {

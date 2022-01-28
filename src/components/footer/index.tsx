@@ -67,13 +67,13 @@ const Footer = () => {
                             window.open('https://twitter.com', '_blank');
                         }} />
                         <Image loading="eager" width={25} height={25} src="/icons/facebook.svg" alt="social-facebook" onClick={() => {
-                            window.open('https://facebook.com', '_blank');
+                            window.open('https://www.facebook.com/LivingWayChurch1', '_blank');
                         }} />
                         <Image loading="eager" width={25} height={25} src="/icons/instagram.svg" alt="social-instagram" onClick={() => {
-                            window.open('https://instagram.com', '_blank');
+                            window.open('https://www.instagram.com/livingway_church', '_blank');
                         }} />
                         <Image loading="eager" width={25} height={25} src="/icons/youtube.svg" alt="social-youtube" onClick={() => {
-                            window.open('https://youtube.com', '_blank');
+                            window.open(`https://youtube.com/channel/${process.env.NEXT_PUBLIC_YOUTUBECHANNELID}`, '_blank');
                         }} />
                     </div>
                 </div>

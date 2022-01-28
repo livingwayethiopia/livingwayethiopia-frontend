@@ -1,5 +1,5 @@
 
-import { useRouter } from 'next/router';
+import router from 'next/router';
 import React from 'react';
 import { theme } from '../../../styles/theme';
 import { BackGroundImage, ButtonContainer, HallowButton, LeftContainer, WelcomeContainer, } from './style';
@@ -9,7 +9,6 @@ const Welcome = ({ hero }: { hero: string }) => {
     let images = process.env.NEXT_PUBLIC_STRAPI_ENDPOINT + hero;
     if (hero == null)
         images = "/images/header.webp";
-    const router = useRouter();
     return (
         <WelcomeContainer >
             <BackGroundImage
