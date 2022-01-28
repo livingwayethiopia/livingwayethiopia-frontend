@@ -8,6 +8,7 @@ import { useRouter } from 'next/router';
 import LangDropdown from '../local';
 import { ButtonNav } from '../header/style';
 import Image from "next/image";
+import ChangeLanguage from '../lang';
 
 
 
@@ -105,7 +106,7 @@ const Drawer = () => {
                         </button>
                     </ButtonNav>
                     : <div />}
-                <LangDropdown />
+                <ChangeLanguage />
 
             </BottomDrawerContainer>
         </MainContainer>

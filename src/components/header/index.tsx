@@ -9,6 +9,8 @@ import { useRouter } from 'next/router';
 import { Popover, Transition } from '@headlessui/react'
 import { loadDefaultErrorComponents } from 'next/dist/server/load-components';
 import axios from "axios";
+import LangDropdown from '../local';
+import ChangeLanguage from '../lang';
 
 
 
@@ -122,6 +124,11 @@ const Header = () => {
                         }
 
                     })}
+                    <div className={
+                        !(navbar.live && navbar.videoId) ?
+                            'border-cyan-700  border-l-2  ' : " ml-4 "}>
+                        <ChangeLanguage />
+                    </div>
                 </FullScreenComponent>
                 <MobileScreenComponent>
                     <div className='navBar' onClick={() => {

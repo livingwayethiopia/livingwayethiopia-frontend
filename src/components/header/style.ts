@@ -62,8 +62,8 @@ export const FullScreenComponent = styled.div<FullComponentType>`
 `;
 
 export const NavLink = styled.span<NavLinkType>`
-  margin-left: 15px;
-  margin-right: 15px;
+  margin-left: 12.5px;
+  margin-right: 12.5px;
   font-size: 14px;
   font-weight: ${(props) => (props.active ? "bold" : 100)};
   -webkit-touch-callout: none; /* iOS Safari */
@@ -90,15 +90,15 @@ export const NavLink = styled.span<NavLinkType>`
 `;
 
 export const ButtonNav = styled.div`
-  width: 120px;
+  width: 95px;
   height: 40px;
   display: grid;
   grid-template-columns: auto auto;
   .border {
     height: 40px;
-    width: 2.5px;
-    margin-left: 5px;
-    margin-right: 5px;
+    width: 1.5px;
+    margin-left: 2.5px;
+    margin-right: 2.5px;
     background-color: ${theme.colors.secondary};
     border-radius: 15px;
   }
@@ -107,9 +107,7 @@ export const ButtonNav = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
+    gap: 7.5px;
     border-radius: ${theme.boarder.radius}px;
     font-size: 14px;
     text-decoration: none;
