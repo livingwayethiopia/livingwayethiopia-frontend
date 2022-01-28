@@ -97,6 +97,10 @@ export const ButtonContainer = styled.button`
   justify-content: center;
   padding-left: 30px;
   padding-right: 30px;
+  :hover {
+    padding-left: 30.5px;
+    padding-right: 30.5px;
+  }
   p {
     font-style: normal;
     font-weight: 400;
@@ -117,6 +121,9 @@ export const HallowButton = styled.button`
   justify-content: center;
   padding-left: 30px;
   padding-right: 30px;
+  :hover {
+    border: 3px solid ${theme.colors.white};
+  }
   p {
     font-style: normal;
     font-weight: 400;

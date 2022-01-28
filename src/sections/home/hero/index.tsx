@@ -1,4 +1,5 @@
 
+import { useRouter } from 'next/router';
 import React from 'react';
 import { theme } from '../../../styles/theme';
 import { BackGroundImage, ButtonContainer, HallowButton, LeftContainer, WelcomeContainer, } from './style';
@@ -8,6 +9,7 @@ const Welcome = ({ hero }: { hero: string }) => {
     let images = process.env.NEXT_PUBLIC_STRAPI_ENDPOINT + hero;
     if (hero == null)
         images = "/images/header.webp";
+    const router = useRouter();
     return (
         <WelcomeContainer >
             <BackGroundImage
@@ -27,7 +29,14 @@ const Welcome = ({ hero }: { hero: string }) => {
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 </p>
                 <div className="buttonContainer ">
-                    <ButtonContainer onClick={() => {
+                    <ButtonContainer onClick={async () => {
+                        let element: any = document.getElementById("subscription");
+                        await element.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" })
+
+                        setTimeout(function () {
+                            document.getElementById("subInput")?.focus();
+
+                        }, 800);
 
                     }}>
                         <p>
@@ -35,7 +44,7 @@ const Welcome = ({ hero }: { hero: string }) => {
                         </p>
                     </ButtonContainer>
                     <HallowButton onClick={() => {
-
+                        router.push(`/articles`, undefined, { shallow: true })
                     }}>
                         <p>
                             Read More

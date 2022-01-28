@@ -101,13 +101,18 @@ export const SubscriptionFormButton = styled.button`
   justify-content: center;
   padding-left: 20px;
   padding-right: 20px;
+  font-size: 20px;
+  :hover {
+    padding-left: 21px;
+    padding-right: 21px;
+    font-size: 20.5px;
+  }
   @media (max-width: 595px) {
     width: 90%;
   }
   p {
     font-style: normal;
     font-weight: 500;
-    font-size: 20px;
     display: flex;
     align-items: center;
     text-align: center;

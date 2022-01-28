@@ -10,7 +10,7 @@ const Subscription = () => {
     const MAILCHIMP_URL = process.env.NEXT_PUBLIC_MAILCHIMP_URL as string;
     const SimpleForm = () => <MailchimpSubscribe url={MAILCHIMP_URL} />
     return (
-        <SubscriptionContainer>
+        <SubscriptionContainer id="subscription">
             <BackgroundImage>
                 <Image loading="eager" width={200} height={200} src="/icons/books.svg" alt="books" />
             </BackgroundImage>
@@ -45,38 +45,52 @@ export default Subscription;
 
 
 const CustomForm = ({ status, message, onValidated }: any) => {
-    let email: string = "";
-    const submit = () =>
-        email &&
-        email.includes("@") &&
-        email.includes(".") &&
-        onValidated({
+
+    const [newCycle, setNewCycle] = useState<boolean>(true);
+    const [email, setEmail] = useState<string>("");
+    const [error, setError] = useState<string>("")
+    const submit = () => {
+        if (!email) return setError("Please input Your Email Address");
+        if (!email.includes("@") || !email.includes(".")) return setError("Please Provide a valid Email Address");
+        setNewCycle(false);
+        return onValidated({
             EMAIL: email,
         });
+    };
     return <div className='form'>
-        <SubscriptionFormInput placeholder='Enter your email' type="email" onChange={(event: any) => {
-            email = event.target.value;
+        <SubscriptionFormInput id="subInput" value={email} placeholder='Enter your email' type="email" onChange={(event: any) => {
+            if (event.target.value.length > 0) setError("");
+            setNewCycle(true);
+            setEmail(event.target.value);
         }} />
+
         <SubscriptionFormButton className='px-6' disabled={status === "sending"} onClick={submit} style={{ cursor: status === "sending" ? "progress" : "pointer" }}>
             <p>
                 {status === "sending" ? "Subscribing..." : "Subscribe"}
             </p>
         </SubscriptionFormButton>
-
-        {status === "error" && (
+        {
+            error.length > 0 && newCycle &&
             <div
                 className='w-full text-center text-md text-orange-600'
             >
-                SomeThing Went Wrong. Please Try Again.
+                {error}
+            </div>
+        }
+        {status === "error" && !newCycle && (
+            <div
+                className='w-full text-center text-md text-orange-600'
+            >
+                {error.length > 0 ? error : "SomeThing went wrong. Please try again!"}
             </div>
         )}
-        {status === "success" && (
+        {status === "success" && !newCycle && (
 
             <div
                 className='text-md px-2 w-full text-center '
                 style={{ color: "green" }}
             >
-                Welcome to the Living way Ethiopia Church!
+                Welcome to Living Way Ethiopia Church!
             </div>
         )}
     </div>
