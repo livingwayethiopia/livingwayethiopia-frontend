@@ -16,7 +16,10 @@ type aboutUsData = {
 
 const initialValues: {
     path: string,
+    videoId?: string,
+    fetchLive: boolean,
     isSticky: boolean,
+    live: boolean,
     drawerView: boolean,
     about: boolean;
     aboutUs: aboutUsData[];
@@ -25,8 +28,14 @@ const initialValues: {
     updateAbout: Function,
     updateDrawerView: Function
     updateIsSticky: Function
+    updateLive: Function
+    updateFetchLive: Function
+    updateVideoId: Function
 } = {
     path: "",
+    videoId: "",
+    fetchLive: true,
+    live: false,
     isSticky: true,
     drawerView: false,
     about: false,
@@ -36,6 +45,9 @@ const initialValues: {
     updateDrawerView: () => { },
     updateIsSticky: () => { },
     updateAbout: () => { },
+    updateLive: () => { },
+    updateFetchLive: () => { },
+    updateVideoId: () => { },
 };
 
 
@@ -45,6 +57,9 @@ const useNavBar = () => useContext(NavBarContext);
 
 const NavBarProvider: React.FC = ({ children }) => {
     const [path, setPath] = useState<string>("/");
+    const [videoId, setVideoId] = useState<string>();
+    const [live, setLive] = useState<boolean>(false);
+    const [fetchLive, setFetchLive] = useState<boolean>(true);
     const [isSticky, setIsSticky] = useState<boolean>(true);
     const [about, setAbout] = useState<boolean>(true);
     const [drawerView, setDrawerView] = useState<boolean>(false);
@@ -128,9 +143,21 @@ const NavBarProvider: React.FC = ({ children }) => {
         setAbout(!about);
     };
 
+    const updateLive = (status: boolean) => {
+        setLive(status);
+    };
+    const updateFetchLive = (status: boolean) => {
+        setFetchLive(status);
+    };
+    const updateVideoId = (status: string) => {
+        setVideoId(status);
+    };
     return (
         <NavBarContext.Provider
             value={{
+                videoId,
+                fetchLive,
+                live,
                 aboutUs,
                 about,
                 path,
@@ -140,7 +167,10 @@ const NavBarProvider: React.FC = ({ children }) => {
                 updateAbout,
                 updateNavBar,
                 updateDrawerView,
-                updateIsSticky
+                updateIsSticky,
+                updateLive,
+                updateFetchLive,
+                updateVideoId
             }}
         >
             {children}

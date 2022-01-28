@@ -8,18 +8,40 @@ import Link from "next/link";
 import { useRouter } from 'next/router';
 import { Popover, Transition } from '@headlessui/react'
 import { loadDefaultErrorComponents } from 'next/dist/server/load-components';
+import axios from "axios";
 
+
+
+// 
 
 const Header = () => {
     const navbar = useNavBar();
     const router = useRouter();
 
-    const [live, setLive] = useState<boolean>(false);
     useEffect(() => {
-        setLive(false);
+        getLiveData();
         return () => {
         }
     }, [])
+
+
+    const getLiveData = async () => {
+        try {
+            const res = await axios({
+                method: 'get',
+                url: `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${process.env.NEXT_PUBLIC_YOUTUBECHANNELID}&type=video&eventType=live&key=${process.env.NEXT_PUBLIC_YOUTUBEAPIKEY}`,
+            });
+            if (res.status === 200) {
+                if (res.data?.items?.length) {
+                    navbar.updateVideoId(res.data?.items[0]?.id?.videoId);
+                    navbar.updateLive(true);
+                }
+            } else { throw new Error() }
+        }
+        catch (e) {
+            console.log(e);
+        }
+    }
     return (
         <HeaderContainer isSticky={navbar.isSticky}>
             <Logo>
@@ -85,17 +107,18 @@ const Header = () => {
                             }}>
                                 {data.name}
                             </NavLink>
-                        else if (data.button && live) {
+                        else if (data.button && navbar.live && navbar.videoId) {
                             return <ButtonNav key={index} >
                                 <div className="border" />
-                                <button className='buttonContainer'>
+                                <button className='buttonContainer' onClick={() => {
+                                    window.open(`https://www.youtube.com/watch?v=${navbar.videoId}`, '_blank');
+                                }}>
                                     {data.name}
                                     <div style={{ width: 20, height: 20 }}>
                                         <Image loading="eager" width={20} height={20} src="/icons/live.svg" alt="live" />
                                     </div>
                                 </button>
                             </ButtonNav>
-
                         }
 
                     })}

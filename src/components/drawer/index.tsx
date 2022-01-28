@@ -93,14 +93,18 @@ const Drawer = () => {
 
             </MidDrawerContainer>
             <BottomDrawerContainer className='flex flex-wrap justify-center  py-2 px-2 '>
-                {false ? <ButtonNav  >
-                    <button className='buttonContainer'>
-                        Live
-                        <div style={{ width: 18, height: 18 }}>
-                            <Image loading="eager" width={18} height={18} src="/icons/live.svg" alt="live" />
-                        </div>
-                    </button>
-                </ButtonNav> : <div />}
+                {(navbar.live && navbar.videoId) ?
+                    <ButtonNav  >
+                        <button className='buttonContainer' onClick={() => {
+                            window.open(`https://www.youtube.com/watch?v=${navbar.videoId}`, '_blank');
+                        }}>
+                            Live
+                            <div style={{ width: 20, height: 20 }}>
+                                <Image loading="eager" width={20} height={20} src="/icons/live.svg" alt="live" />
+                            </div>
+                        </button>
+                    </ButtonNav>
+                    : <div />}
                 <LangDropdown />
 
             </BottomDrawerContainer>
