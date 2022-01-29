@@ -5,7 +5,7 @@ import { theme } from '../../../styles/theme';
 import { BackGroundImage, ButtonContainer, HallowButton, LeftContainer, WelcomeContainer, } from './style';
 
 
-const Welcome = ({ hero }: { hero: string }) => {
+const Welcome = ({ hero, title, description }: { hero: string, title: string, description: string }) => {
     let images = process.env.NEXT_PUBLIC_STRAPI_ENDPOINT + hero;
     if (hero == null)
         images = "/images/header.webp";
@@ -22,10 +22,10 @@ const Welcome = ({ hero }: { hero: string }) => {
             />
             <LeftContainer className='z-20'>
                 <p className='title'>
-                    Lorem ipsum dolor sit
+                    {title}
                 </p>
                 <p className='midText'>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                    {description}
                 </p>
                 <div className="buttonContainer ">
                     <ButtonContainer onClick={async () => {

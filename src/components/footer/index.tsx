@@ -55,7 +55,7 @@ const Footer = () => {
                         Email Address
                     </p>
                     <p className="detailText mt-2 mb-2">
-                        @Gmail.com
+                        LivingwayEthiopia@gmail.com
                     </p>
                 </div>
                 <div>
@@ -81,14 +81,9 @@ const Footer = () => {
         </div>
         <div className="divider" />
         <div className="bottom flex w-full flex-wrap justify-between items-center gap-x-10 gap-y-2">
-            <div>
-                <p>
-                    Copyright © {new Date().getFullYear()}, Living way Ethiopia
-                </p>
-            </div>
-            <div>
-                <LangDropdown />
-            </div>
+            <p>
+                Copyright © {new Date().getFullYear()}, Living way Ethiopia . Power by
+            </p>
         </div>
     </FooterContainer>
 

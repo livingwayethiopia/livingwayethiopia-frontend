@@ -11,7 +11,7 @@ const Podcast = ({ episode }: {
 }) => {
 
     return (
-        <Layout >
+        <Layout header={`${episode.title}`}  >
             <AudioData episode={episode} />
         </Layout>
     )

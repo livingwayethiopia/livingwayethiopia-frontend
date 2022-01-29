@@ -1,22 +1,25 @@
-import type { NextPage } from 'next'
-import Layout from '../../components/layout';
-import { theme } from '../../styles/theme';
-import { request, gql } from 'graphql-request';
-import { AboutUsEntity } from '../../types/strapi';
 
-const MainPurpose = ({ aboutUs }: { aboutUs: AboutUsEntity }) => {
+import React from 'react';
+import { theme } from '../../styles/theme';
+import { AboutUsEntity } from '../../types/strapi';
+import { Container, ImageContainer } from './style';;
+
+
+const AboutUsContainer = ({ aboutUs, members }:
+    { aboutUs: AboutUsEntity, members: { image: string, name: string, title: string }[] }) => {
+
     return (
-        <Layout>
-            <div className="mt-20 md:mt-24">
+        <Container >
+            {aboutUs?.attributes?.ourBeliefs && <div className="mt-8 mb-8">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="lg:text-center">
-                        <h2 className="text-3xl font-bold tracking-wide uppercase" style={{ color: theme.colors.primary }}>Main Purpose</h2>
-                        <p className="mt-4 max-w-2xl text-xl text-left lg:mx-auto" style={{ color: theme.colors.text }}>
-                            {aboutUs?.attributes?.mainPurpose}
+                    <div className="text-center">
+                        <h2 className="text-3xl font-bold tracking-wide uppercase" style={{ color: theme.colors.primary }}>Our Beliefs</h2>
+                        <p className="mt-4 max-w-2xl text-xl text-left mx-auto" style={{ color: theme.colors.text }}>
+                            {aboutUs?.attributes?.ourBeliefs}
                         </p>
                     </div>
                 </div>
-            </div>
+            </div>}
             {aboutUs?.attributes?.missionAndValues &&
                 <div className="mt-10 px-4  mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
                     <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
@@ -69,43 +72,42 @@ const MainPurpose = ({ aboutUs }: { aboutUs: AboutUsEntity }) => {
                                     </div>
                                 </div>
                         })}
-
-
                     </div>
                 </div>}
-        </Layout>
-    )
+            <p className='sm:mt-2 md:mt-9 text-5xl py-3 font-sans font-thin tracking-widest text-center mb-10' style={{ color: "#EA3A60" }}>
+                Main Church  Staff
+                <br />
+                And leaders
+            </p>
+            <div className="rounded-lg grid grid-cols-2 2xl:grid-cols-4 lg:grid-cols-3  gap-4 py-2">
+                {members.map((data, index) => {
+                    return <div className="flex-col flex justify-center items-center py-3 hover:bg-slate-50 hover:shadow-md rounded-lg " key={index}>
+                        <div className="relative rounded-full h-36 w-36 overflow-hidden border-2 " style={{ borderColor: theme.colors.text }}>
+                            <ImageContainer
+                                loading='lazy'
+                                placeholder="blur"
+                                blurDataURL={process.env.NEXT_PUBLIC_STRAPI_ENDPOINT + data.image}
+                                layout='fill'
+                                alt="profile"
+                                quality={100}
+                                src={process.env.NEXT_PUBLIC_STRAPI_ENDPOINT + data.image}
+                            />
+                        </div>
+                        <div className="mt-2 text-center flex flex-col">
+                            <span className=" text-lg font-bold" style={{ color: theme.colors.text }}>
+                                {data.name}
+                            </span>
+                            <span className="text-xs" style={{ color: "#343D48" }}>
+                                {data.title}
+                            </span>
+                        </div>
+                    </div>
+                })}
+
+            </div>
+
+        </Container >
+    );
 }
 
-export default MainPurpose
-
-
-
-export async function getStaticProps({ }) {
-    const query = gql`
-        query AboutUs($locale: I18NLocaleCode) {
-            aboutUs(locale: $locale) {
-                data {
-                attributes {
-                    mainPurpose
-                    missionAndValues {
-                        value
-                    }   
-                }
-                }
-            }
-        }
-    `
-    const variables = {
-        "locale": process.env.NEXT_PUBLIC_LANGUAGE,
-    }
-    const data = await request(
-        process.env.NEXT_PUBLIC_STRAPI_GRAPHQL_ENDPOINT!, query, variables)
-    return {
-        props: {
-            aboutUs: data.aboutUs.data,
-        },
-        revalidate: 3600,
-    };
-}
-
+export default AboutUsContainer;

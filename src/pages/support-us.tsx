@@ -6,7 +6,7 @@ import { SupportUsEntity } from '../types/strapi';
 
 const SupportUs = ({ supportUs }: { supportUs: SupportUsEntity }) => {
   return (
-    <Layout>
+    <Layout header={"Support Us"} >
       <SupportUsContainer supportUs={supportUs} />
     </Layout>
   )

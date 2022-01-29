@@ -10,11 +10,15 @@ import { HomepageEntity } from '../types/strapi';
 
 const Home = ({ homePage }: { homePage: HomepageEntity }) => {
   return (
-    <Layout>
-      <Welcome hero={homePage.attributes?.heroImage?.data?.attributes?.url!} />
+    <Layout header={homePage?.attributes?.seo?.title!} >
+      <Welcome hero={homePage.attributes?.heroImage?.data?.attributes?.url!} title={homePage.attributes?.heroTitle!} description={homePage.attributes?.heroDescription!} />
       <ServiceSection serviceData={homePage.attributes?.serviceTime!} />
       <EventSection images={homePage.attributes?.events?.data!} />
-      <Vision vision={homePage.attributes?.missionAndVision?.vision!} mission={homePage.attributes?.missionAndVision?.mission!} />
+      <Vision
+        vision={homePage.attributes?.missionAndVision?.vision!}
+        image={homePage.attributes?.visionAndValueImage?.data?.attributes?.url!}
+        mission={homePage.attributes?.missionAndVision?.mission!}
+      />
       <OurCurchSection images={homePage.attributes?.ourChurchImage?.data!} />
     </Layout>
   )
@@ -56,6 +60,18 @@ export async function getStaticProps({ }) {
               id
               title
               description
+            }
+            heroTitle
+            heroDescription
+            visionAndValueImage {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            seo{
+              title
             }
             missionAndVision {
               id

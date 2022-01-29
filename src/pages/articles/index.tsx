@@ -9,7 +9,7 @@ const Articles = ({
     articles,
 }: { articles: ArticleEntity[] }) => {
     return (
-        <Layout background={theme.colors.background} >
+        <Layout header={"Articles"} background={theme.colors.background} >
             <div style={{ height: 80, width: "100%" }} />
             <ArticleList articles={articles} />
         </Layout>
