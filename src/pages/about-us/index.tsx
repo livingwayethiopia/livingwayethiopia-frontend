@@ -1,17 +1,17 @@
-import type { NextPage } from 'next'
 import Layout from '../../components/layout';
-import Members from '../../sections/about-us/members';
 import { request, gql } from 'graphql-request';
+import { AboutUsEntity } from '../../types/strapi';
+import AboutUsContainer from '../../sections/about-us';
 
-const Staff = ({ members }: { members: { image: string, name: string, title: string }[] }) => {
+const AboutUS = ({ aboutUs, members }: { aboutUs: AboutUsEntity, members: { image: string, name: string, title: string }[] }) => {
     return (
-        <Layout>
-            <Members members={members} />
+        <Layout header={"About Us"} >
+            <AboutUsContainer aboutUs={aboutUs} members={members} />
         </Layout>
     )
 }
 
-export default Staff
+export default AboutUS
 
 
 
@@ -20,19 +20,23 @@ export async function getStaticProps({ }) {
         query AboutUs($locale: I18NLocaleCode) {
             aboutUs(locale: $locale) {
                 data {
-                    attributes {
-                        churchStaff {
-                            avatar {
-                                data {
-                                    attributes {
-                                        url
-                                    }
+                attributes {
+                    churchStaff {
+                        avatar {
+                            data {
+                                attributes {
+                                    url
                                 }
                             }
-                            name
-                            title
                         }
+                        name
+                        title
                     }
+                    ourBeliefs
+                    missionAndValues {
+                        value
+                    }   
+                }
                 }
             }
         }
@@ -54,6 +58,7 @@ export async function getStaticProps({ }) {
         }
     return {
         props: {
+            aboutUs: data.aboutUs.data,
             members: members,
         },
         revalidate: 3600,

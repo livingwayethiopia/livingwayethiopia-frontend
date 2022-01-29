@@ -30,7 +30,7 @@ const Drawer = () => {
             <MidDrawerContainer >
                 <div className="relative flex flex-col px-6" style={{ width: "100%" }}>
                     {navbar.paths.map((data, index) => {
-                        if (data.path === "/about-us") return <div key={index}>
+                        if (data.path === "/ministry") return <div key={index}>
                             <div className='mx-1 flex justify-between border-b-2 align-middle border-gray-100 my-2  h-8 ' onClick={() => {
                                 setIsOpen(!isOpen);
                             }}>
@@ -58,7 +58,7 @@ const Drawer = () => {
                                     key={index}
                                     onClick={() => {
                                         navbar.updateNavBar(data.path);
-                                        router.replace(`/about-us${item.path}`, undefined, { shallow: true })
+                                        router.replace(`/ministry${item.path}`, undefined, { shallow: true })
                                         navbar.updateDrawerView();
                                     }}
                                     className="

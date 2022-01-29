@@ -8,8 +8,8 @@ import { ComponentMinistryImageWithTitle, Maybe } from '../../../types/strapi';
 
 const Community = ({ communityOutReach }: { communityOutReach: Maybe<ComponentMinistryImageWithTitle>[] }) => {
     return (
-        <Container >
-            <p className='text-3xl py-3 font-thin' style={{ color: theme.colors.text }}>
+        <Container className='pt-10 sm:pt-15' >
+            <p className='text-3xl py-1 font-thin' style={{ color: theme.colors.text }}>
                 Community Out Reach
             </p>
             <div className="rounded-lg grid items-start sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 py-2">

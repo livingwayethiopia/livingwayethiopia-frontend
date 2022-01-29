@@ -22,24 +22,14 @@ export type Scalars = {
 
 export type AboutUs = {
   __typename?: 'AboutUs';
-  MembershipInfo?: Maybe<Array<Maybe<ComponentQuestionAndAnswerQAndA>>>;
-  churchCreation?: Maybe<Scalars['String']>;
   churchStaff?: Maybe<Array<Maybe<ComponentMinistryStaff>>>;
   createdAt?: Maybe<Scalars['DateTime']>;
-  history?: Maybe<Scalars['String']>;
   locale?: Maybe<Scalars['String']>;
   localizations?: Maybe<AboutUsRelationResponseCollection>;
-  mainPurpose?: Maybe<Scalars['String']>;
   missionAndValues?: Maybe<Array<Maybe<ComponentGlobalRepeatableText>>>;
+  ourBeliefs?: Maybe<Scalars['String']>;
   publishedAt?: Maybe<Scalars['DateTime']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
-};
-
-
-export type AboutUsMembershipInfoArgs = {
-  filters?: InputMaybe<ComponentQuestionAndAnswerQAndAFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 
@@ -73,12 +63,9 @@ export type AboutUsEntityResponse = {
 };
 
 export type AboutUsInput = {
-  MembershipInfo?: InputMaybe<Array<InputMaybe<ComponentQuestionAndAnswerQAndAInput>>>;
-  churchCreation?: InputMaybe<Scalars['String']>;
   churchStaff?: InputMaybe<Array<InputMaybe<ComponentMinistryStaffInput>>>;
-  history?: InputMaybe<Scalars['String']>;
-  mainPurpose?: InputMaybe<Scalars['String']>;
   missionAndValues?: InputMaybe<Array<InputMaybe<ComponentGlobalRepeatableTextInput>>>;
+  ourBeliefs?: InputMaybe<Scalars['String']>;
   publishedAt?: InputMaybe<Scalars['DateTime']>;
 };
 
@@ -306,20 +293,6 @@ export type ComponentQuestionAndAnswerQAndA = {
   question?: Maybe<Scalars['String']>;
 };
 
-export type ComponentQuestionAndAnswerQAndAFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<ComponentQuestionAndAnswerQAndAFiltersInput>>>;
-  answer?: InputMaybe<StringFilterInput>;
-  not?: InputMaybe<ComponentQuestionAndAnswerQAndAFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<ComponentQuestionAndAnswerQAndAFiltersInput>>>;
-  question?: InputMaybe<StringFilterInput>;
-};
-
-export type ComponentQuestionAndAnswerQAndAInput = {
-  answer?: InputMaybe<Scalars['String']>;
-  id?: InputMaybe<Scalars['ID']>;
-  question?: InputMaybe<Scalars['String']>;
-};
-
 export type ComponentSeoSeo = {
   __typename?: 'ComponentSeoSeo';
   id: Scalars['ID'];
@@ -483,7 +456,9 @@ export type Homepage = {
   __typename?: 'Homepage';
   createdAt?: Maybe<Scalars['DateTime']>;
   events?: Maybe<UploadFileRelationResponseCollection>;
+  heroDescription?: Maybe<Scalars['String']>;
   heroImage?: Maybe<UploadFileEntityResponse>;
+  heroTitle?: Maybe<Scalars['String']>;
   locale?: Maybe<Scalars['String']>;
   localizations?: Maybe<HomepageRelationResponseCollection>;
   missionAndVision?: Maybe<ComponentHomepageMissionAndVision>;
@@ -492,6 +467,7 @@ export type Homepage = {
   seo?: Maybe<ComponentSeoSeo>;
   serviceTime?: Maybe<Array<Maybe<ComponentHomepageServiceTime>>>;
   updatedAt?: Maybe<Scalars['DateTime']>;
+  visionAndValueImage?: Maybe<UploadFileEntityResponse>;
 };
 
 
@@ -533,12 +509,15 @@ export type HomepageEntityResponse = {
 
 export type HomepageInput = {
   events?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  heroDescription?: InputMaybe<Scalars['String']>;
   heroImage?: InputMaybe<Scalars['ID']>;
+  heroTitle?: InputMaybe<Scalars['String']>;
   missionAndVision?: InputMaybe<ComponentHomepageMissionAndVisionInput>;
   ourChurchImage?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
   publishedAt?: InputMaybe<Scalars['DateTime']>;
   seo?: InputMaybe<ComponentSeoSeoInput>;
   serviceTime?: InputMaybe<Array<InputMaybe<ComponentHomepageServiceTimeInput>>>;
+  visionAndValueImage?: InputMaybe<Scalars['ID']>;
 };
 
 export type HomepageRelationResponseCollection = {

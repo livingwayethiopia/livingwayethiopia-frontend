@@ -13,28 +13,14 @@ export const Container = styled.div`
   flex-direction: column;
   position: relative;
   .topPart {
-    padding-top: 70px;
     margin: 0px;
     display: flex;
-    position: fixed;
     gap: 10px;
     width: 100%;
-    height: 107.5px;
-    z-index: 15;
-    background-color: ${theme.colors.background_secondary};
-    flex-direction: column;
+    padding-top: 80px;
+    text-align: center;
+    color: ${theme.colors.primary};
     ${cssSnippets.padding}
-    .tabs {
-      display: flex;
-      justify-content: space-around;
-      gap: 30px;
-    }
-    .divider {
-      width: 100%;
-      height: 2px;
-      background-color: ${theme.colors.third}22;
-      border-radius: 50px;
-    }
   }
   .sermonBottom {
     padding-top: 110px;

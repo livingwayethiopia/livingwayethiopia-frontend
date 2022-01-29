@@ -6,7 +6,7 @@ import { theme } from '../../../styles/theme'
 const Video: NextPage = () => {
 
     return (
-        <Layout background={theme.colors.background} >
+        <Layout header={"Church Video"} background={theme.colors.background} >
             <SingleVideo />
         </Layout>
     )

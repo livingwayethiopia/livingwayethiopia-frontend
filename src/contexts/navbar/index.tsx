@@ -101,29 +101,34 @@ const NavBarProvider: React.FC = ({ children }) => {
     ]);
     const [aboutUs] = useState<aboutUsData[]>([
         {
-            name: 'Our History',
-            path: '/our-history',
-            iconData: historyIcon,
+            name: 'Children',
+            path: '/children',
+            iconData: childrenIcon,
         },
         {
-            name: 'Why This Church was Created',
-            path: '/why',
-            iconData: creationIcon,
+            name: 'Youth',
+            path: '/youth',
+            iconData: youthIcon,
         },
         {
-            name: 'Main Purpose',
-            path: '/main-purpose',
-            iconData: honorIcon,
+            name: 'Senior',
+            path: '/senior',
+            iconData: seniorIcon,
         },
         {
-            name: 'Church Staff',
-            path: '/staff',
-            iconData: staffIcon,
+            name: 'Senior',
+            path: '/senior',
+            iconData: seniorIcon,
         },
         {
-            name: 'Member Ship Info',
-            path: '/member-ship',
-            iconData: memberShipIcon,
+            name: 'Senior',
+            path: '/senior',
+            iconData: seniorIcon,
+        },
+        {
+            name: 'Senior',
+            path: '/senior',
+            iconData: seniorIcon,
         },
     ]);
 
@@ -180,12 +185,18 @@ const NavBarProvider: React.FC = ({ children }) => {
 
 
 
-const historyIcon = () => {
+const childrenIcon = () => {
     return (
         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect opacity="0.5" width="48" height="48" rx="5" fill="#FFEDD5" />
-            <path d="M15 25H33V33.002C33 33.553 32.555 34 32.007 34H15.993C15.8623 33.9997 15.7328 33.9737 15.6122 33.9234C15.4915 33.8731 15.3819 33.7995 15.2897 33.7068C15.1974 33.6141 15.1244 33.5042 15.0747 33.3832C15.025 33.2623 14.9996 33.1328 15 33.002V25ZM15 14.998C15 14.447 15.445 14 15.993 14H32.007C32.555 14 33 14.446 33 14.998V23H15V14.998ZM21 17V19H27V17H21ZM21 28V30H27V28H21Z" fill="#FDBA74" />
+            <path opacity="0.5" d="M43 0H5C2.23858 0 0 2.23858 0 5V43C0 45.7614 2.23858 48 5 48H43C45.7614 48 48 45.7614 48 43V5C48 2.23858 45.7614 0 43 0Z" fill="#FFEDD5" />
+            <path d="M30 19.16C29.94 19.15 29.87 19.15 29.81 19.16C28.43 19.11 27.33 17.98 27.33 16.58C27.33 15.15 28.48 14 29.91 14C31.34 14 32.49 15.16 32.49 16.58C32.48 17.98 31.38 19.11 30 19.16Z" stroke="#EF9410" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M28.9699 26.44C30.3399 26.67 31.8499 26.43 32.9099 25.72C34.3199 24.78 34.3199 23.24 32.9099 22.3C31.8399 21.59 30.3099 21.35 28.9399 21.59" stroke="#EF9410" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M17.97 19.16C18.03 19.15 18.1 19.15 18.16 19.16C19.54 19.11 20.64 17.98 20.64 16.58C20.64 15.15 19.49 14 18.06 14C16.63 14 15.48 15.16 15.48 16.58C15.49 17.98 16.59 19.11 17.97 19.16Z" stroke="#EF9410" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M18.9999 26.44C17.6299 26.67 16.1199 26.43 15.0599 25.72C13.6499 24.78 13.6499 23.24 15.0599 22.3C16.1299 21.59 17.6599 21.35 19.0299 21.59" stroke="#EF9410" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M24 26.63C23.94 26.62 23.87 26.62 23.81 26.63C22.43 26.58 21.33 25.45 21.33 24.05C21.33 22.62 22.48 21.47 23.91 21.47C25.34 21.47 26.49 22.63 26.49 24.05C26.48 25.45 25.38 26.59 24 26.63Z" stroke="#EF9410" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M21.09 29.78C19.68 30.72 19.68 32.26 21.09 33.2C22.69 34.27 25.31 34.27 26.91 33.2C28.32 32.26 28.32 30.72 26.91 29.78C25.32 28.72 22.69 28.72 21.09 29.78Z" stroke="#EF9410" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
+
 
     )
 }
@@ -201,7 +212,7 @@ const staffIcon = () => {
     )
 }
 
-const memberShipIcon = () => {
+const seniorIcon = () => {
     return (
         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect opacity="0.5" width="48" height="48" rx="5" fill="#FFEDD5" />
@@ -219,7 +230,7 @@ const honorIcon = () => {
         </svg>
     )
 }
-const creationIcon = () => {
+const youthIcon = () => {
     return (
         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect opacity="0.5" width="48" height="48" rx="5" fill="#FFEDD5" />

@@ -9,7 +9,7 @@ let parser = new Parser();
 
 const Sermon = ({ episodes }: any) => {
     return (
-        <Layout background={theme.colors.background_secondary} >
+        <Layout header={"Sermon"} background={theme.colors.background_secondary} >
             <SermonSection episodes={episodes} />
         </Layout>
     )
