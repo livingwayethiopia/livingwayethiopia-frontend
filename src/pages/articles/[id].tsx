@@ -8,7 +8,7 @@ const Article = ({
     article,
 }: { article: ArticleEntity }) => {
     return (
-        <Layout header={`${article.attributes?.title}`} >
+        <Layout header={`${article?.attributes?.title}`} >
             <ArticleSection article={article} />
         </Layout>
     )
