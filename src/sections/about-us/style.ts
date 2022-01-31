@@ -1,6 +1,6 @@
-import Image from "next/image";
 import styled from "styled-components";
 import { cssSnippets } from "../../styles/cssSnippets";
+import { theme } from "../../styles/theme";
 
 export const Container = styled.div`
   min-width: 300px;
@@ -9,14 +9,26 @@ export const Container = styled.div`
   gap: 10px;
   display: flex;
   flex-direction: column;
-  position: relative;
   padding-top: 60px;
-  ${cssSnippets.padding}
+
+  .paddingSnippet {
+    ${cssSnippets.padding}
+  }
+  .sermonContainerBottom {
+    ${cssSnippets.padding}
+  }
 `;
 
-export const ImageContainer = styled(Image)`
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-  object-position: 50% 0%;
+interface TabContainerData {
+  active?: boolean;
+}
+
+export const TabContainer = styled.p<TabContainerData>`
+  font-weight: ${(props) => (props.active ? "bolder" : "bolder")};
+  color: ${(props) =>
+    props.active ? theme.colors.primary : theme.colors.third};
+  transition: color 0.2s ease-out;
+  :hover {
+    color: ${theme.colors.primary};
+  }
 `;

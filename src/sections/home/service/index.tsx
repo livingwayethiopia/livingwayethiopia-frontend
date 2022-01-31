@@ -4,6 +4,7 @@ import { Title } from '../event/style';
 import Image from "next/image";
 import { CardContainer, InnerServiceContainer, ServiceContainer, } from './style';
 import { ComponentHomepageServiceTime, Maybe } from '../../../types/strapi';
+import ReactHtmlParser from 'react-html-parser';
 
 
 interface ServiceDataType {
@@ -23,8 +24,12 @@ const ServiceSection = ({ serviceData }: { serviceData: Maybe<ComponentHomepageS
                             <Image src="/icons/calendar.svg" alt="calender" width={35} height={35} loading="eager" />
                         </div>
                         <div className="right">
-                            <p className='text-xl leading-8 font-extrabold mb-3 md:mt-4'>{data!.title}</p>
-                            <p className='text-sm font-thin '>{data!.description}</p>
+                            <p className='text-xl leading-8 font-extrabold mb-3 md:mt-4'>
+                                {ReactHtmlParser(data!.title!)}
+                            </p>
+                            <p className='text-sm font-thin '>
+                                {ReactHtmlParser(data!.description!)}
+                            </p>
                         </div>
                     </CardContainer>
                 })}

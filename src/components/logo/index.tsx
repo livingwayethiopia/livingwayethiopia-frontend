@@ -12,9 +12,8 @@ export default function LogoContainer() {
                     loading="eager"
                     src="/icons/logo.svg"
                     alt="Logo"
-                    width={185}
-                    height={40}
-
+                    width={195}
+                    height={50}
                 />
             </a>
         </Link>

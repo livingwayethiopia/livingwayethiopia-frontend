@@ -2,6 +2,7 @@
 import router from 'next/router';
 import React from 'react';
 import { theme } from '../../../styles/theme';
+import ReactHtmlParser from 'react-html-parser';
 import { BackGroundImage, ButtonContainer, HallowButton, LeftContainer, WelcomeContainer, } from './style';
 
 
@@ -22,10 +23,10 @@ const Welcome = ({ hero, title, description }: { hero: string, title: string, de
             />
             <LeftContainer className='z-20'>
                 <p className='title'>
-                    {title}
+                    {ReactHtmlParser(title)}
                 </p>
-                <p className='midText'>
-                    {description}
+                <p className='midText text-xl'>
+                    {ReactHtmlParser(description)}
                 </p>
                 <div className="buttonContainer ">
                     <ButtonContainer onClick={async () => {

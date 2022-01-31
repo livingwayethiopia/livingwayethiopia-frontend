@@ -3,7 +3,7 @@ module.exports = {
     images: {
         domains: [
             "images.unsplash.com",
-            "997d-197-156-77-38.ngrok.io",
+            "e8ea-197-156-77-92.ngrok.io",
             "cms.livingwayethiopia.com",
             "cms.livingwayethiopia.org",
             "img.youtube.com",

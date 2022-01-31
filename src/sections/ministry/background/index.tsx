@@ -7,6 +7,8 @@ import Image from "next/image";
 import { Container, ImageContainer, SliderContainer } from './style';
 import { theme } from '../../../styles/theme';
 import { Maybe } from '../../../types/strapi';
+import ReactHtmlParser from 'react-html-parser';
+
 
 interface backgroundType {
     image: string | undefined;
@@ -24,7 +26,7 @@ const BackgroundInfo = ({ background }: { background: backgroundType }) => {
                             Background Info
                         </p>
                         <p className="mt-2 text-sm font-thin" style={{ color: theme.colors.text }}>
-                            {background.text}
+                            {ReactHtmlParser(background.text!)}
                         </p>
                     </div>
                     <div className="mt-10 relative lg:mt-0 lg:col-start-2" style={{ width: "100%", height: "100%", minHeight: 350 }}>

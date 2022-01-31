@@ -21,13 +21,6 @@ const SermonSection = ({ episodes }: { episodes: EpisodeType[] }) => {
         <SermonContainer >
             <div className='topPart'>
                 <div className='tabs'>
-                    <TabContainer active={ActiveTabData.Podcasts === sermon} onClick={() => {
-                        updateSermon(ActiveTabData.Podcasts)
-                    }}>
-                        <p>
-                            Podcast
-                        </p>
-                    </TabContainer>
                     <TabContainer active={ActiveTabData.Videos === sermon} onClick={() => {
                         updateSermon(ActiveTabData.Videos)
                     }}>
@@ -35,18 +28,17 @@ const SermonSection = ({ episodes }: { episodes: EpisodeType[] }) => {
                             Videos
                         </p>
                     </TabContainer>
-                    {/* <TabContainer active={ActiveTabData.Audios === sermon} onClick={() => {
-                        updateSermon(ActiveTabData.Audios)
+                    <TabContainer active={ActiveTabData.Podcasts === sermon} onClick={() => {
+                        updateSermon(ActiveTabData.Podcasts)
                     }}>
                         <p>
-                            Audio
+                            Podcast
                         </p>
-                    </TabContainer> */}
+                    </TabContainer>
                 </div>
                 <div className='divider' />
             </div>
             <div className='sermonBottom'>
-                {/* {ActiveTabData.Audios === sermon && <AudioList />} */}
                 {ActiveTabData.Videos === sermon && <VideoList />}
                 {ActiveTabData.Podcasts === sermon && <PodcastList episodes={episodes} />}
             </div>

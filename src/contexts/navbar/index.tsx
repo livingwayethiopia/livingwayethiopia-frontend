@@ -78,7 +78,7 @@ const NavBarProvider: React.FC = ({ children }) => {
         },
         {
             "path": "/sermon",
-            "name": process.env.NEXT_PUBLIC_LANGUAGE === "en" ? "SERMON" : "amharic"
+            "name": process.env.NEXT_PUBLIC_LANGUAGE === "en" ? "SERMONS" : "amharic"
         },
         {
             "path": "/about-us",

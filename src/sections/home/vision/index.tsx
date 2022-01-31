@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { BottomPart, TopImage, TopPart, VisionContainer, } from './style';
-
+import ReactHtmlParser from 'react-html-parser';
 
 
 const Vision = ({ vision, mission, image }: { vision: string, mission: string, image: string }) => {
@@ -27,7 +27,7 @@ const Vision = ({ vision, mission, image }: { vision: string, mission: string, i
                     OUR VISION
                 </p>
                 <p className='subText'>
-                    {vision}
+                    {ReactHtmlParser(vision)}
                 </p>
             </BottomPart>
             <BottomPart left={true}>
@@ -35,7 +35,7 @@ const Vision = ({ vision, mission, image }: { vision: string, mission: string, i
                     OUR MISSION
                 </p>
                 <p className='subText'>
-                    {mission}
+                    {ReactHtmlParser(mission)}
                 </p>
             </BottomPart>
         </VisionContainer>

@@ -123,5 +123,11 @@ export const TextContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    svg {
+      fill: ${theme.colors.secondary};
+      :hover {
+        fill: ${theme.colors.primary};
+      }
+    }
   }
 `;

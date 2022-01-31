@@ -55,8 +55,8 @@ const ArticleSection = ({ article }: { article: ArticleEntity }) => {
                         alt="podcast-Image"
                     />}
                 </div>
-                <ReactMarkdown remarkPlugins={[remarkGfm]} className='text-lg font-extralight font-sans mt-2 mb-4 px-3 md:px-5 bodyText'>
-                    {data.text as string}
+                <ReactMarkdown remarkPlugins={[[remarkGfm]]} className='text-lg mt-2 mb-4 px-3 md:px-5 bodyText'>
+                    {data!.text!}
                 </ReactMarkdown>
             </div>
         </ArticleContainer>

@@ -21,7 +21,7 @@ type FullComponentType = {
 export const HeaderContainer = styled.header<HeaderType>`
   font-weight: normal;
   padding: 10px;
-  height: 60px;
+  height: 70px;
   width: 100vw;
   position: fixed;
   top: 0;
