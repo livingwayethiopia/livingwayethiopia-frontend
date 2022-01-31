@@ -21,7 +21,7 @@ import prettier from 'prettier';
                 const route = path === '/index' ? '' : path;
                 return `
             <url>
-                <loc>${`https://livingwayethiopia.com${route}`}</loc>
+                <loc>${`https://livingwayethiopia.org${route}`}</loc>
             </url>
         `;
             })

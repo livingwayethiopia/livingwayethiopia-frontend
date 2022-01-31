@@ -64,7 +64,7 @@ const LangDropdown = () => {
                                 closeDropdownPopover();
                                 return;
                             }
-                            else window.location.href = "https://livingwayethiopia.com"
+                            else window.location.href = "https://livingwayethiopia.org"
                         }}
                     >
                         <div className='relative h-4 w-7 rounded-sm overflow-hidden'>
@@ -88,7 +88,7 @@ const LangDropdown = () => {
                                 closeDropdownPopover();
                                 return;
                             }
-                            else location.replace("https://am.livingwayethiopia.com");
+                            else location.replace("https://am.livingwayethiopia.org");
                         }}
 
                     >
