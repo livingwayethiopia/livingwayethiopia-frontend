@@ -7,8 +7,8 @@ const ChangeLanguage = () => {
                 <div className=" py-1 rounded gap-x-2 cursor-pointer select-none ease-linear transition-all duration-150 flex items-center "
                     onClick={() => {
                         if (process.env.NEXT_PUBLIC_LANGUAGE === "en")
-                            location.replace("https://am.livingwayethiopia.com");
-                        else window.location.href = "https://livingwayethiopia.com"
+                            location.replace("https://am.livingwayethiopia.org");
+                        else window.location.href = "https://livingwayethiopia.org"
                     }}
                 >
 
