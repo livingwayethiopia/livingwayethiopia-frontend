@@ -70,8 +70,6 @@ export const LeftContainer = styled.div`
   .midText {
     font-style: normal;
     font-weight: normal;
-    font-size: 16px;
-    line-height: 25px;
     color: ${theme.colors.white};
   }
   .buttonContainer {

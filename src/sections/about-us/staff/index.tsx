@@ -1,20 +1,19 @@
 
-import React, { useState } from 'react';
-import Image from "next/image";
-import { Container, ImageContainer } from './style';
+import React from 'react';
 import { theme } from '../../../styles/theme';
 import { AboutUsEntity } from '../../../types/strapi';
+import { Container, ImageContainer } from './style';;
 
 
-const Members = ({ members }: { members: { image: string, name: string, title: string }[] }) => {
+const Staffs = ({ members }:
+    { members: { image: string, name: string, title: string }[] }) => {
 
     return (
-        <Container >
-            <p className='sm:mt-2 md:mt-9 text-5xl py-3 font-sans font-thin tracking-widest text-center mb-10' style={{ color: "#EA3A60" }}>
-                Main Church  Staff
-                <br />
-                And leaders
-            </p>
+        <Container ><p className='sm:mt-2 md:mt-9 text-5xl py-3 font-sans font-thin tracking-widest text-center mb-10' style={{ color: "#EA3A60" }}>
+            Main Church  Staff
+            <br />
+            And leaders
+        </p>
             <div className="rounded-lg grid grid-cols-2 2xl:grid-cols-4 lg:grid-cols-3  gap-4 py-2">
                 {members.map((data, index) => {
                     return <div className="flex-col flex justify-center items-center py-3 hover:bg-slate-50 hover:shadow-md rounded-lg " key={index}>
@@ -33,7 +32,7 @@ const Members = ({ members }: { members: { image: string, name: string, title: s
                             <span className=" text-lg font-bold" style={{ color: theme.colors.text }}>
                                 {data.name}
                             </span>
-                            <span className="text-xs" style={{ color: "#343D48" }}>
+                            <span className="text-md" style={{ color: "#343D48" }}>
                                 {data.title}
                             </span>
                         </div>
@@ -41,9 +40,8 @@ const Members = ({ members }: { members: { image: string, name: string, title: s
                 })}
 
             </div>
-
         </Container >
     );
 }
 
-export default Members;
+export default Staffs;

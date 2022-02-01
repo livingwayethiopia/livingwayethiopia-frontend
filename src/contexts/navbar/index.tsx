@@ -41,13 +41,13 @@ const initialValues: {
   about: false,
   aboutUs: [],
   paths: [],
-  updateNavBar: () => {},
-  updateDrawerView: () => {},
-  updateIsSticky: () => {},
-  updateAbout: () => {},
-  updateLive: () => {},
-  updateFetchLive: () => {},
-  updateVideoId: () => {},
+  updateNavBar: () => { },
+  updateDrawerView: () => { },
+  updateIsSticky: () => { },
+  updateAbout: () => { },
+  updateLive: () => { },
+  updateFetchLive: () => { },
+  updateVideoId: () => { },
 };
 
 const NavBarContext = React.createContext(initialValues);
@@ -92,42 +92,41 @@ const NavBarProvider: React.FC = ({ children }) => {
       path: "/support us",
       name: process.env.NEXT_PUBLIC_LANGUAGE === "en" ? "LIVE" : "ቀትታ",
       button: true,
-      action: () => {},
+      action: () => { },
     },
   ]);
   const [aboutUs] = useState<aboutUsData[]>([
     {
-      name: "Children",
-      path: "/children",
+      name: 'Small Group',
+      path: '/smallGroup',
       iconData: childrenIcon,
     },
     {
-      name: "Youth",
-      path: "/youth",
+      name: 'Children',
+      path: '/children',
+      iconData: childrenIcon,
+    },
+    {
+      name: 'Mission and Church planting',
+      path: '/missionAndChurchPlanting',
+      iconData: seniorIcon,
+    },
+    {
+      name: 'Marriage and family',
+      path: '/marriageAndFamily',
+      iconData: seniorIcon,
+    },
+    {
+      name: 'Youth',
+      path: '/youth',
       iconData: youthIcon,
     },
     {
-      name: "Senior",
-      path: "/senior",
-      iconData: seniorIcon,
-    },
-    {
-      name: "Senior",
-      path: "/senior",
-      iconData: seniorIcon,
-    },
-    {
-      name: "Senior",
-      path: "/senior",
-      iconData: seniorIcon,
-    },
-    {
-      name: "Senior",
-      path: "/senior",
+      name: 'Community outreach',
+      path: '/communityOutreach',
       iconData: seniorIcon,
     },
   ]);
-
   const updateNavBar = (data: string) => {
     setPath(data);
   };

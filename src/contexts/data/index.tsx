@@ -11,7 +11,7 @@ const initialValues: {
     sermon: ActiveTabData,
     updateSermon: Function
 } = {
-    sermon: ActiveTabData.Podcasts,
+    sermon: ActiveTabData.Videos,
     updateSermon: (value: ActiveTabData) => {
     }
 };
@@ -23,7 +23,7 @@ const useGeneralData = () => useContext(GlobalContext);
 
 const GeneralDataProvider: React.FC = ({ children }) => {
 
-    const [sermon, setSermon] = useState<ActiveTabData>(ActiveTabData.Podcasts);
+    const [sermon, setSermon] = useState<ActiveTabData>(ActiveTabData.Videos);
 
     const updateSermon = (value: ActiveTabData) => {
         setSermon(value);

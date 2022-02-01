@@ -18,10 +18,12 @@ const SupportUsContainer = ({ supportUs }: { supportUs: SupportUsEntity }) => {
     return (
         <Container >
 
-            <div className='topPart '>
-                <div className='tabs'>
+            <div className='SupportUSTopPart '>
+                <div className='SupportUSTabs'>
                     <TabContainer active={CurrentTabData.Giving === current} onClick={() => {
                         setCurrent(CurrentTabData.Giving)
+                        let element: any = document.getElementById("SupportUS");
+                        element.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" })
 
                     }}>
                         <p>
@@ -30,6 +32,8 @@ const SupportUsContainer = ({ supportUs }: { supportUs: SupportUsEntity }) => {
                     </TabContainer>
                     <TabContainer active={CurrentTabData.Partnership === current} onClick={() => {
                         setCurrent(CurrentTabData.Partnership)
+                        let element: any = document.getElementById("SupportUS");
+                        element.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" })
 
                     }}>
                         <p>
@@ -37,9 +41,9 @@ const SupportUsContainer = ({ supportUs }: { supportUs: SupportUsEntity }) => {
                         </p>
                     </TabContainer>
                 </div>
-                <div className='divider' />
+                <div className='SupportUSDivider' />
             </div>
-            <div className='mb-10' />
+            <div className='mb-10' id="SupportUS" />
             <div className='bottom'>
                 {
                     supportUs?.attributes?.Giving! &&

@@ -5,7 +5,6 @@ import { Container, TabContainer, } from './style';
 import { theme } from '../../../styles/theme';
 import StaffMember from '../staff';
 import BackgroundInfo from '../background';
-import Community from '../community';
 import { ComponentMinistryMinistry, Maybe } from '../../../types/strapi';
 
 
@@ -17,7 +16,6 @@ const MinistryContainer = ({ ministryData, title }: { ministryData: Maybe<Compon
             image: ministryData?.InfoImage?.data?.attributes?.url,
             text: ministryData?.BackgroundInfo
         },
-        communityOutReach: ministryData?.communityOutReach,
     })
 
     return (
@@ -34,8 +32,6 @@ const MinistryContainer = ({ ministryData, title }: { ministryData: Maybe<Compon
                 ministry.background.text! &&
                 ministry.background.image! &&
                 <BackgroundInfo background={ministry.background} />}
-            {ministry.communityOutReach! &&
-                <Community communityOutReach={ministry.communityOutReach!} />}
         </Container>
     );
 }

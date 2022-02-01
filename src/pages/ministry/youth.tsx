@@ -1,4 +1,3 @@
-import type { NextPage } from 'next'
 import Layout from '../../components/layout';
 import MinistryContainer from '../../sections/ministry/container';
 
@@ -28,16 +27,6 @@ query Query($locale: I18NLocaleCode) {
             data {
               attributes {
                 url
-              }
-            }
-          }
-          communityOutReach {
-            title
-            image {
-              data {
-                attributes {
-                  url
-                }
               }
             }
           }

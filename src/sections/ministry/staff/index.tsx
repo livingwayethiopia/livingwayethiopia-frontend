@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Container, ImageContainer } from './style';
 import { theme } from '../../../styles/theme';
 import { ComponentMinistryStaff, Maybe } from '../../../types/strapi';
+import ReactHtmlParser from 'react-html-parser';
 
 
 const StaffMember = ({ staff }: { staff: Maybe<ComponentMinistryStaff>[] }) => {
@@ -28,10 +29,10 @@ const StaffMember = ({ staff }: { staff: Maybe<ComponentMinistryStaff>[] }) => {
                         </div>
                         <div className="mt-2 text-center flex flex-col">
                             <span className=" text-lg font-bold" style={{ color: theme.colors.text }}>
-                                {data?.name}
+                                {ReactHtmlParser(data?.name!)}
                             </span>
                             <span className="text-xs" style={{ color: "#343D48" }}>
-                                {data?.title}
+                                {ReactHtmlParser(data?.title!)}
                             </span>
                         </div>
                     </div>

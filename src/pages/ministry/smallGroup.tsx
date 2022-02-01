@@ -1,19 +1,18 @@
-import type { NextPage } from 'next'
 import Layout from '../../components/layout';
 import MinistryContainer from '../../sections/ministry/container';
 
 import { request, gql } from 'graphql-request';
 import { MinistryEntity } from '../../types/strapi';
 
-const SeniorMinistry = ({ ministry }: { ministry: MinistryEntity }) => {
+const SmallGroupMinistry = ({ ministry }: { ministry: MinistryEntity }) => {
   return (
-    <Layout header={"Senior Ministry"} >
-      <MinistryContainer ministryData={ministry?.attributes?.senior!} title={"Senior Ministry"} />
+    <Layout header={"Small Group Ministry"} >
+      <MinistryContainer ministryData={ministry?.attributes?.smallGroup!} title={"Small Group Ministry"} />
     </Layout>
   )
 }
 
-export default SeniorMinistry
+export default SmallGroupMinistry
 
 
 
@@ -23,22 +22,12 @@ query Query($locale: I18NLocaleCode) {
   ministry(locale: $locale) {
     data {
       attributes {
-        senior {
+        smallGroup {
           BackgroundInfo
           InfoImage {
             data {
               attributes {
                 url
-              }
-            }
-          }
-          communityOutReach {
-            title
-            image {
-              data {
-                attributes {
-                  url
-                }
               }
             }
           }
