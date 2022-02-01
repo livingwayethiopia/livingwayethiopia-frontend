@@ -101,9 +101,24 @@ const NavBarProvider: React.FC = ({ children }) => {
     ]);
     const [aboutUs] = useState<aboutUsData[]>([
         {
+            name: 'Small Group',
+            path: '/smallGroup',
+            iconData: childrenIcon,
+        },
+        {
             name: 'Children',
             path: '/children',
             iconData: childrenIcon,
+        },
+        {
+            name: 'Mission and Church planting',
+            path: '/missionAndChurchPlanting',
+            iconData: seniorIcon,
+        },
+        {
+            name: 'Marriage and family',
+            path: '/marriageAndFamily',
+            iconData: seniorIcon,
         },
         {
             name: 'Youth',
@@ -111,23 +126,8 @@ const NavBarProvider: React.FC = ({ children }) => {
             iconData: youthIcon,
         },
         {
-            name: 'Senior',
-            path: '/senior',
-            iconData: seniorIcon,
-        },
-        {
-            name: 'Senior',
-            path: '/senior',
-            iconData: seniorIcon,
-        },
-        {
-            name: 'Senior',
-            path: '/senior',
-            iconData: seniorIcon,
-        },
-        {
-            name: 'Senior',
-            path: '/senior',
+            name: 'Community outreach',
+            path: '/communityOutreach',
             iconData: seniorIcon,
         },
     ]);

@@ -89,7 +89,7 @@ const Footer = () => {
         <div className="divider" />
         <div className="bottom flex w-full flex-wrap justify-between items-center gap-x-10 gap-y-2">
             <p>
-                Copyright © {new Date().getFullYear()}, Living way Ethiopia . Power by Akn.et
+                Copyright © {new Date().getFullYear()}, Living way Ethiopia . Power by etn.et
             </p>
         </div>
     </FooterContainer>

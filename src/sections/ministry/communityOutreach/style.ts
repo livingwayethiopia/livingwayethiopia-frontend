@@ -1,46 +1,38 @@
-import Image from "next/image";
 import styled from "styled-components";
-import { cssSnippets } from "../../styles/cssSnippets";
-import { theme } from "../../styles/theme";
-
+import Image from "next/image";
+import { theme } from "../../../styles/theme";
+import { cssSnippets } from "../../../styles/cssSnippets";
 export const Container = styled.div`
   min-width: 300px;
   width: 100vw;
+  padding-bottom: 100px;
   gap: 10px;
-  padding-bottom: 50px;
-  padding-top: 10px;
   display: flex;
   flex-direction: column;
+  padding-top: 60px;
   position: relative;
-  .SupportUSTopPart {
-    padding-top: 70px;
+  .CommunityOutReachTopPart {
     margin: 0px;
     display: flex;
     position: fixed;
     gap: 10px;
     width: 100%;
-    height: 107.5px;
     z-index: 15;
+    padding-top: 20px;
     background-color: ${theme.colors.background_secondary};
     flex-direction: column;
-    ${cssSnippets.padding}
-    .SupportUSTabs {
+    .CommunityOutReachTabs {
       display: flex;
       justify-content: space-around;
       gap: 30px;
+      ${cssSnippets.padding}
     }
-    .SupportUSDivider {
+    .CommunityOutReachDivider {
       width: 100%;
       height: 2px;
       background-color: ${theme.colors.third}22;
       border-radius: 50px;
     }
-  }
-  .sermonBottom {
-    padding-top: 110px;
-  }
-  .bottom {
-    ${cssSnippets.padding}
   }
 `;
 
@@ -49,20 +41,22 @@ interface TabContainerData {
 }
 
 export const TabContainer = styled.div<TabContainerData>`
-  p {
-    font-size: 20px;
-    margin: 0px;
-    font-weight: ${(props) => (props.active ? "bolder" : "bolder")};
-    color: ${(props) =>
-      props.active ? theme.colors.primary : theme.colors.third};
-    transition: all 0.2s ease-out;
-    :hover {
-      /* font-weight: bolder; */
-      color: ${theme.colors.primary};
-    }
+  margin: 0px;
+  color: ${(props) =>
+    props.active ? theme.colors.primary : theme.colors.third};
+  transition: all 0.2s ease-out;
+  :hover {
+    color: ${theme.colors.primary};
   }
   display: flex;
   align-items: center;
   cursor: pointer;
   ${cssSnippets.select}
+`;
+
+export const ImageContainer = styled(Image)`
+  object-fit: cover;
+  width: 100%;
+  object-position: 50% 50%;
+  height: 100%;
 `;

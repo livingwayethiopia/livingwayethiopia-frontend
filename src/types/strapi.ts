@@ -26,10 +26,10 @@ export type AboutUs = {
   createdAt?: Maybe<Scalars['DateTime']>;
   locale?: Maybe<Scalars['String']>;
   localizations?: Maybe<AboutUsRelationResponseCollection>;
-  missionAndValues?: Maybe<Array<Maybe<ComponentGlobalRepeatableText>>>;
-  ourBeliefs?: Maybe<Scalars['String']>;
+  ourBeliefs?: Maybe<ComponentGlobalRepeatableText>;
   publishedAt?: Maybe<Scalars['DateTime']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
+  whoWeAre?: Maybe<Array<Maybe<ComponentGlobalListDetail>>>;
 };
 
 
@@ -45,8 +45,8 @@ export type AboutUsLocalizationsArgs = {
 };
 
 
-export type AboutUsMissionAndValuesArgs = {
-  filters?: InputMaybe<ComponentGlobalRepeatableTextFiltersInput>;
+export type AboutUsWhoWeAreArgs = {
+  filters?: InputMaybe<ComponentGlobalListDetailFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
@@ -64,9 +64,9 @@ export type AboutUsEntityResponse = {
 
 export type AboutUsInput = {
   churchStaff?: InputMaybe<Array<InputMaybe<ComponentMinistryStaffInput>>>;
-  missionAndValues?: InputMaybe<Array<InputMaybe<ComponentGlobalRepeatableTextInput>>>;
-  ourBeliefs?: InputMaybe<Scalars['String']>;
+  ourBeliefs?: InputMaybe<ComponentGlobalRepeatableTextInput>;
   publishedAt?: InputMaybe<Scalars['DateTime']>;
+  whoWeAre?: InputMaybe<Array<InputMaybe<ComponentGlobalListDetailInput>>>;
 };
 
 export type AboutUsRelationResponseCollection = {
@@ -160,22 +160,134 @@ export type BooleanFilterInput = {
   startsWith?: InputMaybe<Scalars['Boolean']>;
 };
 
-export type ComponentGlobalRepeatableText = {
-  __typename?: 'ComponentGlobalRepeatableText';
-  id: Scalars['ID'];
-  value?: Maybe<Scalars['String']>;
+export type CommunityOutReach = {
+  __typename?: 'CommunityOutReach';
+  childrenHolistics?: Maybe<Array<Maybe<ComponentGlobalDetailedContainer>>>;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  publishedAt?: Maybe<Scalars['DateTime']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+  vocationalYouthTrainings?: Maybe<Array<Maybe<ComponentGlobalDetailedContainer>>>;
+  womenEmpowerment?: Maybe<Array<Maybe<ComponentGlobalDetailedContainer>>>;
 };
 
-export type ComponentGlobalRepeatableTextFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<ComponentGlobalRepeatableTextFiltersInput>>>;
-  not?: InputMaybe<ComponentGlobalRepeatableTextFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<ComponentGlobalRepeatableTextFiltersInput>>>;
-  value?: InputMaybe<StringFilterInput>;
+
+export type CommunityOutReachChildrenHolisticsArgs = {
+  filters?: InputMaybe<ComponentGlobalDetailedContainerFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+export type CommunityOutReachVocationalYouthTrainingsArgs = {
+  filters?: InputMaybe<ComponentGlobalDetailedContainerFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+export type CommunityOutReachWomenEmpowermentArgs = {
+  filters?: InputMaybe<ComponentGlobalDetailedContainerFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type CommunityOutReachEntity = {
+  __typename?: 'CommunityOutReachEntity';
+  attributes?: Maybe<CommunityOutReach>;
+  id?: Maybe<Scalars['ID']>;
+};
+
+export type CommunityOutReachEntityResponse = {
+  __typename?: 'CommunityOutReachEntityResponse';
+  data?: Maybe<CommunityOutReachEntity>;
+};
+
+export type CommunityOutReachInput = {
+  childrenHolistics?: InputMaybe<Array<InputMaybe<ComponentGlobalDetailedContainerInput>>>;
+  publishedAt?: InputMaybe<Scalars['DateTime']>;
+  vocationalYouthTrainings?: InputMaybe<Array<InputMaybe<ComponentGlobalDetailedContainerInput>>>;
+  womenEmpowerment?: InputMaybe<Array<InputMaybe<ComponentGlobalDetailedContainerInput>>>;
+};
+
+export type ComponentGlobalDetailedContainer = {
+  __typename?: 'ComponentGlobalDetailedContainer';
+  detail?: Maybe<Scalars['String']>;
+  id: Scalars['ID'];
+  media?: Maybe<UploadFileEntityResponse>;
+  title?: Maybe<Scalars['String']>;
+};
+
+export type ComponentGlobalDetailedContainerFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentGlobalDetailedContainerFiltersInput>>>;
+  detail?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<ComponentGlobalDetailedContainerFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentGlobalDetailedContainerFiltersInput>>>;
+  title?: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentGlobalDetailedContainerInput = {
+  detail?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['ID']>;
+  media?: InputMaybe<Scalars['ID']>;
+  title?: InputMaybe<Scalars['String']>;
+};
+
+export type ComponentGlobalListDetail = {
+  __typename?: 'ComponentGlobalListDetail';
+  Title?: Maybe<Scalars['String']>;
+  detail?: Maybe<Array<Maybe<ComponentGlobalTextList>>>;
+  id: Scalars['ID'];
+};
+
+
+export type ComponentGlobalListDetailDetailArgs = {
+  filters?: InputMaybe<ComponentGlobalTextListFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type ComponentGlobalListDetailFiltersInput = {
+  Title?: InputMaybe<StringFilterInput>;
+  and?: InputMaybe<Array<InputMaybe<ComponentGlobalListDetailFiltersInput>>>;
+  not?: InputMaybe<ComponentGlobalListDetailFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentGlobalListDetailFiltersInput>>>;
+};
+
+export type ComponentGlobalListDetailInput = {
+  Title?: InputMaybe<Scalars['String']>;
+  detail?: InputMaybe<Array<InputMaybe<ComponentGlobalTextListInput>>>;
+  id?: InputMaybe<Scalars['ID']>;
+};
+
+export type ComponentGlobalRepeatableText = {
+  __typename?: 'ComponentGlobalRepeatableText';
+  detail?: Maybe<Scalars['String']>;
+  id: Scalars['ID'];
+  media?: Maybe<UploadFileEntityResponse>;
 };
 
 export type ComponentGlobalRepeatableTextInput = {
+  detail?: InputMaybe<Scalars['String']>;
   id?: InputMaybe<Scalars['ID']>;
-  value?: InputMaybe<Scalars['String']>;
+  media?: InputMaybe<Scalars['ID']>;
+};
+
+export type ComponentGlobalTextList = {
+  __typename?: 'ComponentGlobalTextList';
+  content?: Maybe<Scalars['String']>;
+  id: Scalars['ID'];
+};
+
+export type ComponentGlobalTextListFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentGlobalTextListFiltersInput>>>;
+  content?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<ComponentGlobalTextListFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentGlobalTextListFiltersInput>>>;
+};
+
+export type ComponentGlobalTextListInput = {
+  content?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['ID']>;
 };
 
 export type ComponentHomepageMissionAndVision = {
@@ -219,33 +331,12 @@ export type ComponentMinistryImageWithTitle = {
   title?: Maybe<Scalars['String']>;
 };
 
-export type ComponentMinistryImageWithTitleFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<ComponentMinistryImageWithTitleFiltersInput>>>;
-  not?: InputMaybe<ComponentMinistryImageWithTitleFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<ComponentMinistryImageWithTitleFiltersInput>>>;
-  title?: InputMaybe<StringFilterInput>;
-};
-
-export type ComponentMinistryImageWithTitleInput = {
-  id?: InputMaybe<Scalars['ID']>;
-  image?: InputMaybe<Scalars['ID']>;
-  title?: InputMaybe<Scalars['String']>;
-};
-
 export type ComponentMinistryMinistry = {
   __typename?: 'ComponentMinistryMinistry';
   BackgroundInfo?: Maybe<Scalars['String']>;
   InfoImage?: Maybe<UploadFileEntityResponse>;
-  communityOutReach?: Maybe<Array<Maybe<ComponentMinistryImageWithTitle>>>;
   id: Scalars['ID'];
   staffMember?: Maybe<Array<Maybe<ComponentMinistryStaff>>>;
-};
-
-
-export type ComponentMinistryMinistryCommunityOutReachArgs = {
-  filters?: InputMaybe<ComponentMinistryImageWithTitleFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 
@@ -258,7 +349,6 @@ export type ComponentMinistryMinistryStaffMemberArgs = {
 export type ComponentMinistryMinistryInput = {
   BackgroundInfo?: InputMaybe<Scalars['String']>;
   InfoImage?: InputMaybe<Scalars['ID']>;
-  communityOutReach?: InputMaybe<Array<InputMaybe<ComponentMinistryImageWithTitleInput>>>;
   id?: InputMaybe<Scalars['ID']>;
   staffMember?: InputMaybe<Array<InputMaybe<ComponentMinistryStaffInput>>>;
 };
@@ -450,7 +540,7 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']>;
 };
 
-export type GenericMorph = AboutUs | Article | ComponentGlobalRepeatableText | ComponentHomepageMissionAndVision | ComponentHomepageServiceTime | ComponentMinistryImageWithTitle | ComponentMinistryMinistry | ComponentMinistryStaff | ComponentQuestionAndAnswerQAndA | ComponentSeoSeo | ComponentSupportUsBank | ComponentSupportUsGiving | ComponentSupportUsPartner | ComponentSupportUsPartnerShip | Homepage | I18NLocale | Ministry | SupportUs | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = AboutUs | Article | CommunityOutReach | ComponentGlobalDetailedContainer | ComponentGlobalListDetail | ComponentGlobalRepeatableText | ComponentGlobalTextList | ComponentHomepageMissionAndVision | ComponentHomepageServiceTime | ComponentMinistryImageWithTitle | ComponentMinistryMinistry | ComponentMinistryStaff | ComponentQuestionAndAnswerQAndA | ComponentSeoSeo | ComponentSupportUsBank | ComponentSupportUsGiving | ComponentSupportUsPartner | ComponentSupportUsPartnerShip | Homepage | I18NLocale | Ministry | SupportUs | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
 export type Homepage = {
   __typename?: 'Homepage';
@@ -636,8 +726,10 @@ export type Ministry = {
   createdAt?: Maybe<Scalars['DateTime']>;
   locale?: Maybe<Scalars['String']>;
   localizations?: Maybe<MinistryRelationResponseCollection>;
+  marriageAndFamily?: Maybe<ComponentMinistryMinistry>;
+  missionAndChurchPlanting?: Maybe<ComponentMinistryMinistry>;
   publishedAt?: Maybe<Scalars['DateTime']>;
-  senior?: Maybe<ComponentMinistryMinistry>;
+  smallGroup?: Maybe<ComponentMinistryMinistry>;
   updatedAt?: Maybe<Scalars['DateTime']>;
   youth?: Maybe<ComponentMinistryMinistry>;
 };
@@ -660,8 +752,10 @@ export type MinistryEntityResponse = {
 
 export type MinistryInput = {
   children?: InputMaybe<ComponentMinistryMinistryInput>;
+  marriageAndFamily?: InputMaybe<ComponentMinistryMinistryInput>;
+  missionAndChurchPlanting?: InputMaybe<ComponentMinistryMinistryInput>;
   publishedAt?: InputMaybe<Scalars['DateTime']>;
-  senior?: InputMaybe<ComponentMinistryMinistryInput>;
+  smallGroup?: InputMaybe<ComponentMinistryMinistryInput>;
   youth?: InputMaybe<ComponentMinistryMinistryInput>;
 };
 
@@ -685,6 +779,7 @@ export type Mutation = {
   createUsersPermissionsUser: UsersPermissionsUserEntityResponse;
   deleteAboutUs?: Maybe<AboutUsEntityResponse>;
   deleteArticle?: Maybe<ArticleEntityResponse>;
+  deleteCommunityOutReach?: Maybe<CommunityOutReachEntityResponse>;
   deleteHomepage?: Maybe<HomepageEntityResponse>;
   deleteMinistry?: Maybe<MinistryEntityResponse>;
   deleteSupportUs?: Maybe<SupportUsEntityResponse>;
@@ -706,6 +801,7 @@ export type Mutation = {
   resetPassword?: Maybe<UsersPermissionsLoginPayload>;
   updateAboutUs?: Maybe<AboutUsEntityResponse>;
   updateArticle?: Maybe<ArticleEntityResponse>;
+  updateCommunityOutReach?: Maybe<CommunityOutReachEntityResponse>;
   updateFileInfo: UploadFileEntityResponse;
   updateHomepage?: Maybe<HomepageEntityResponse>;
   updateMinistry?: Maybe<MinistryEntityResponse>;
@@ -869,6 +965,11 @@ export type MutationUpdateArticleArgs = {
 };
 
 
+export type MutationUpdateCommunityOutReachArgs = {
+  data: CommunityOutReachInput;
+};
+
+
 export type MutationUpdateFileInfoArgs = {
   id: Scalars['ID'];
   info?: InputMaybe<FileInfoInput>;
@@ -944,6 +1045,7 @@ export type Query = {
   aboutUs?: Maybe<AboutUsEntityResponse>;
   article?: Maybe<ArticleEntityResponse>;
   articles?: Maybe<ArticleEntityResponseCollection>;
+  communityOutReach?: Maybe<CommunityOutReachEntityResponse>;
   homepage?: Maybe<HomepageEntityResponse>;
   i18NLocale?: Maybe<I18NLocaleEntityResponse>;
   i18NLocales?: Maybe<I18NLocaleEntityResponseCollection>;
@@ -977,6 +1079,11 @@ export type QueryArticlesArgs = {
   pagination?: InputMaybe<PaginationArg>;
   publicationState?: InputMaybe<PublicationState>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+export type QueryCommunityOutReachArgs = {
+  publicationState?: InputMaybe<PublicationState>;
 };
 
 

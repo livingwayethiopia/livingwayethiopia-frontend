@@ -4,15 +4,15 @@ import MinistryContainer from '../../sections/ministry/container';
 import { request, gql } from 'graphql-request';
 import { MinistryEntity } from '../../types/strapi';
 
-const ChildrenMinistry = ({ ministry }: { ministry: MinistryEntity }) => {
+const MissionAndChurchPlantingMinistry = ({ ministry }: { ministry: MinistryEntity }) => {
   return (
-    <Layout header={"Children Ministry"}>
-      <MinistryContainer ministryData={ministry?.attributes?.children!} title="Children Ministry" />
+    <Layout header={"Mission And Church Planting Ministry"} >
+      <MinistryContainer ministryData={ministry?.attributes?.missionAndChurchPlanting!} title={"Mission And Church Planting Ministry"} />
     </Layout>
   )
 }
 
-export default ChildrenMinistry
+export default MissionAndChurchPlantingMinistry
 
 
 
@@ -22,7 +22,7 @@ query Query($locale: I18NLocaleCode) {
   ministry(locale: $locale) {
     data {
       attributes {
-        children {
+        missionAndChurchPlanting {
           BackgroundInfo
           InfoImage {
             data {

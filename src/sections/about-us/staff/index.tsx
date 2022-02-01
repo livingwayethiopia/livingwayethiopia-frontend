@@ -32,7 +32,7 @@ const Staffs = ({ members }:
                             <span className=" text-lg font-bold" style={{ color: theme.colors.text }}>
                                 {data.name}
                             </span>
-                            <span className="text-xs" style={{ color: "#343D48" }}>
+                            <span className="text-md" style={{ color: "#343D48" }}>
                                 {data.title}
                             </span>
                         </div>

@@ -23,6 +23,8 @@ const SermonSection = ({ episodes, playlists }: { episodes: EpisodeType[], playl
                 <div className='tabs'>
                     <TabContainer active={ActiveTabData.Videos === sermon} onClick={() => {
                         updateSermon(ActiveTabData.Videos)
+                        let element: any = document.getElementById("Sermon");
+                        element.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" })
                     }}>
                         <p>
                             Videos
@@ -30,6 +32,8 @@ const SermonSection = ({ episodes, playlists }: { episodes: EpisodeType[], playl
                     </TabContainer>
                     <TabContainer active={ActiveTabData.Podcasts === sermon} onClick={() => {
                         updateSermon(ActiveTabData.Podcasts)
+                        let element: any = document.getElementById("Sermon");
+                        element.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" })
                     }}>
                         <p>
                             Podcast
@@ -38,6 +42,7 @@ const SermonSection = ({ episodes, playlists }: { episodes: EpisodeType[], playl
                 </div>
                 <div className='divider' />
             </div>
+            <div id="Sermon" />
             <div className='sermonBottom'>
                 {ActiveTabData.Videos === sermon && <VideoList playlists={playlists} />}
                 {ActiveTabData.Podcasts === sermon && <PodcastList episodes={episodes} />}
