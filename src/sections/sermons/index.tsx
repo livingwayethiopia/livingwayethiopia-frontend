@@ -6,7 +6,7 @@ import AudioList from './audio';
 import PodcastList from './podcast';
 import VideoList from './video';
 import { useGeneralData } from '../../contexts/data';
-import { EpisodeType } from '../../types/custom';
+import { EpisodeType, PlaylistType } from '../../types/custom';
 
 enum ActiveTabData {
     Podcasts,
@@ -15,7 +15,7 @@ enum ActiveTabData {
 }
 
 
-const SermonSection = ({ episodes }: { episodes: EpisodeType[] }) => {
+const SermonSection = ({ episodes, playlists }: { episodes: EpisodeType[], playlists: PlaylistType[] }) => {
     const { sermon, updateSermon } = useGeneralData()
     return (
         <SermonContainer >
@@ -39,7 +39,7 @@ const SermonSection = ({ episodes }: { episodes: EpisodeType[] }) => {
                 <div className='divider' />
             </div>
             <div className='sermonBottom'>
-                {ActiveTabData.Videos === sermon && <VideoList />}
+                {ActiveTabData.Videos === sermon && <VideoList playlists={playlists} />}
                 {ActiveTabData.Podcasts === sermon && <PodcastList episodes={episodes} />}
             </div>
         </SermonContainer>

@@ -5,7 +5,6 @@ import { useNavBar } from '../../contexts/navbar';
 import LogoContainer from '../logo';
 import Image from "next/image";
 import { useRouter } from 'next/router';
-import axios from "axios";
 import ChangeLanguage from '../lang';
 import HeaderPopover from './popover';
 
@@ -13,30 +12,6 @@ const Header = () => {
     const navbar = useNavBar();
     const router = useRouter();
 
-    useEffect(() => {
-        getLiveData();
-        return () => {
-        }
-    }, [])
-
-
-    const getLiveData = async () => {
-        try {
-            const res = await axios({
-                method: 'get',
-                url: `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${process.env.NEXT_PUBLIC_YOUTUBECHANNELID}&type=video&eventType=live&key=${process.env.NEXT_PUBLIC_YOUTUBEAPIKEY}`,
-            });
-            if (res.status === 200) {
-                if (res.data?.items?.length) {
-                    navbar.updateVideoId(res.data?.items[0]?.id?.videoId);
-                    navbar.updateLive(true);
-                }
-            } else { throw new Error() }
-        }
-        catch (e) {
-            console.log(e);
-        }
-    }
     return (
         <HeaderContainer isSticky={navbar.isSticky}>
             <Logo>
@@ -56,11 +31,11 @@ const Header = () => {
                                 }}>
                                     {data.name}
                                 </NavLink>
-                            else if (data.button && navbar.live && navbar.videoId) {
+                            else if (data.button) {
                                 return <ButtonNav key={index} >
                                     <div className="border" />
-                                    <button className='buttonContainer' onClick={() => {
-                                        window.open(`https://www.youtube.com/watch?v=${navbar.videoId}`, '_blank');
+                                    <button className='buttonContainer' onClick={async () => {
+                                        window.open(`https://youtube.com/channel/${process.env.NEXT_PUBLIC_YOUTUBECHANNELID}`, '_blank');
                                     }}>
                                         {data.name}
                                         <div style={{ width: 20, height: 20 }}>
@@ -71,9 +46,7 @@ const Header = () => {
                             }
 
                     })}
-                    <div className={
-                        !(navbar.live && navbar.videoId) ?
-                            'border-cyan-700  border-l-2  ' : " ml-4 "}>
+                    <div className={" ml-2 "}>
                         <ChangeLanguage />
                     </div>
                 </FullScreenComponent>
