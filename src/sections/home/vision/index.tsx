@@ -28,11 +28,13 @@ const Vision = ({
         <p>
           {process.env.NEXT_PUBLIC_LANGUAGE === "en"
             ? "OUR VISION & VALUES"
-            : "ራዕየ እና እሴቶች"}
+            : "ራዕይ እና እሴቶች"}
         </p>
       </TopPart>
       <BottomPart left={false}>
-        <p className="title">OUR VISION</p>
+        <p className="title">
+          {process.env.NEXT_PUBLIC_LANGUAGE === "en" ? "OUR VISION" : "ራዕይ"}
+        </p>
         <p className="subText">{vision}</p>
       </BottomPart>
       <BottomPart left={true}>
