@@ -51,10 +51,13 @@ const Footer = () => {
                 : "የ ኢሜል አድራሻ"}
             </p>
             <div className="right ">
-              <p className="detailText mt-2 mb-2">
-                Livingwayethiopia@gmail.com
-              </p>
-              <p className="detailText mt-2 mb-2">Livingway1019@gmail.com</p>
+              <div className='w-full flex flex-wrap gap-x-4 justify-between '>
+                <p className="detailText mb-1">Info@livingwayethiopia.org</p>
+                <p className="detailText mb-2">
+                  Livingwayethiopia@gmail.com
+                </p>
+              </div>
+              <p className="detailText =">Livingway1019@gmail.com</p>
             </div>
           </div>
           <div>

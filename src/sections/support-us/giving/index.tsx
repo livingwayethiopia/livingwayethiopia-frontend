@@ -45,7 +45,7 @@ const GivingComponent = ({ data }: { data: Maybe<ComponentSupportUsGiving> }) =>
                                     <p className=" text-xl font-medium">
                                         {ReactHtmlParser(item?.name!)}
                                     </p>
-                                    <p className="text-gray-400 text-xs">
+                                    <p className="text-gray-400 text-lg">
                                         {ReactHtmlParser(item?.detail!)}
                                     </p>
                                 </div>

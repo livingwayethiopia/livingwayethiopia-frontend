@@ -41,7 +41,7 @@ const CommunityContainer = ({
               <p className="text-3xl my-2 md:my-4 ">{data?.title}</p>
               <ReactMarkdown
                 remarkPlugins={[[remarkGfm]]}
-                className="text-gray-900"
+                className="text-gray-900 "
               >
                 {data?.detail!}
               </ReactMarkdown>
@@ -54,7 +54,7 @@ const CommunityContainer = ({
                 <p className="text-3xl  my-4 font-black">{data?.title}</p>
               </div>
               <div
-                className="flex flex-wrap-reverse gap-y-5 "
+                className="flex flex-wrap-reverse gap-y-5 w-full"
                 style={{
                   alignItems: "start",
                   justifyContent: "start",
@@ -70,7 +70,7 @@ const CommunityContainer = ({
                 >
                   <ReactMarkdown
                     remarkPlugins={[[remarkGfm]]}
-                    className="text-gray-900"
+                    className="text-gray-900 "
                   >
                     {data?.detail!}
                   </ReactMarkdown>

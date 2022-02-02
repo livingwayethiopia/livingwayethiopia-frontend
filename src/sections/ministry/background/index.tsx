@@ -13,7 +13,7 @@ const BackgroundInfo = ({ background }: { background: backgroundType }) => {
   return (
     <Container className="sm:pt-10">
       <div className="relative ">
-        <div className="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-12 lg:items-center">
+        <div className="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-12 items-start">
           <div className="lg:col-start-1 ">
             <p
               className="mt-2 text-sm font-thin"

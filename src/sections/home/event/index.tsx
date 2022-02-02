@@ -50,62 +50,64 @@ const EventSection = ({ images }: { images: UploadFileEntity[] }) => {
   });
   return (
     <>
-      <EventContainer>
-        <Title className="text-3xl mb-10 mt-14">
-          {process.env.NEXT_PUBLIC_LANGUAGE === "en" ? "Events" : "ዝግጅቶች"}
-        </Title>
-      </EventContainer>
-      <SliderContainer>
-        <div ref={ref} className="keen-slider">
-          {images.map((data, index) => {
-            return (
-              <div className="keen-slider__slide customSlider" key={index}>
-                <Image
-                  loading="lazy"
-                  placeholder="blur"
-                  blurDataURL={
-                    process.env.NEXT_PUBLIC_STRAPI_ENDPOINT +
-                    data.attributes?.url!
-                  }
-                  src={
-                    process.env.NEXT_PUBLIC_STRAPI_ENDPOINT +
-                    data.attributes?.url!
-                  }
-                  alt="event"
-                  layout="fill"
-                />
-              </div>
-            );
-          })}
-        </div>
-        <Arrow
-          left={true}
-          onClick={(e: any) =>
-            e.stopPropagation() || instanceRef.current?.prev()
-          }
-        >
-          <Image
-            loading="eager"
-            src="/icons/leftArrow.svg"
-            alt="event"
-            width={25}
-            height={25}
-          />
-        </Arrow>
-        <Arrow
-          onClick={(e: any) =>
-            e.stopPropagation() || instanceRef.current?.next()
-          }
-        >
-          <Image
-            loading="eager"
-            src="/icons/arrowRight.svg"
-            alt="event"
-            width={25}
-            height={25}
-          />
-        </Arrow>
-      </SliderContainer>
+      {images && images.length > 0 && <>
+        <EventContainer>
+          <Title className="text-3xl mb-10 mt-14">
+            {process.env.NEXT_PUBLIC_LANGUAGE === "en" ? "Events" : "ዝግጅቶች"}
+          </Title>
+        </EventContainer>
+        <SliderContainer>
+          <div ref={ref} className="keen-slider">
+            {images.map((data, index) => {
+              return (
+                <div className="keen-slider__slide customSlider" key={index}>
+                  <Image
+                    loading="lazy"
+                    placeholder="blur"
+                    blurDataURL={
+                      process.env.NEXT_PUBLIC_STRAPI_ENDPOINT +
+                      data.attributes?.url!
+                    }
+                    src={
+                      process.env.NEXT_PUBLIC_STRAPI_ENDPOINT +
+                      data.attributes?.url!
+                    }
+                    alt="event"
+                    layout="fill"
+                  />
+                </div>
+              );
+            })}
+          </div>
+          <Arrow
+            left={true}
+            onClick={(e: any) =>
+              e.stopPropagation() || instanceRef.current?.prev()
+            }
+          >
+            <Image
+              loading="eager"
+              src="/icons/leftArrow.svg"
+              alt="event"
+              width={25}
+              height={25}
+            />
+          </Arrow>
+          <Arrow
+            onClick={(e: any) =>
+              e.stopPropagation() || instanceRef.current?.next()
+            }
+          >
+            <Image
+              loading="eager"
+              src="/icons/arrowRight.svg"
+              alt="event"
+              width={25}
+              height={25}
+            />
+          </Arrow>
+        </SliderContainer>
+      </>}
     </>
   );
 };
