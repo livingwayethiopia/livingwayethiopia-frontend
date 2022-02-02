@@ -10,7 +10,7 @@ const Staffs = ({
   members: { image: string; name: string; title: string }[];
 }) => {
   return (
-    <Container>
+    <Container className="mt-10">
       <p
         className="sm:mt-2 md:mt-9 text-5xl py-3 font-sans font-thin tracking-widest text-center mb-10"
         style={{ color: "#EA3A60" }}

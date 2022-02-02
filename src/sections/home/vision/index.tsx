@@ -33,13 +33,13 @@ const Vision = ({
         </p>
       </TopPart>
       <BottomPart left={false}>
-        <p className="title">
+        <p className="title w-full flex justify-start">
           {process.env.NEXT_PUBLIC_LANGUAGE === "en" ? "OUR VISION" : "ራዕይ"}
         </p>
         <p className="subText">{ReactHtmlParser(vision)}</p>
       </BottomPart>
       <BottomPart left={true}>
-        <p className="title">
+        <p className="title w-full flex justify-end">
           {process.env.NEXT_PUBLIC_LANGUAGE === "en" ? "OUR MISSION" : "ተልዕኮ"}
         </p>
         <p className="subText">{ReactHtmlParser(mission)}</p>

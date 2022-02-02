@@ -94,7 +94,7 @@ export async function getStaticProps({ }) {
     props: {
       homePage: data.homepage.data,
     },
-    revalidate: 3600,
+    revalidate: 600,
   };
 }
 

@@ -69,7 +69,7 @@ export async function getStaticProps({ }) {
     props: {
       community: data.communityOutReach.data,
     },
-    revalidate: 3600,
+    revalidate: 600,
   };
 }
 

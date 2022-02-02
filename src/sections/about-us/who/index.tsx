@@ -12,7 +12,7 @@ const WhoWeAre = ({ aboutUs, }:
 
     return (
         <Container >
-            <div className="mt-12">
+            <div className="mt-10">
                 {aboutUs?.attributes?.whoWeAre &&
                     aboutUs?.attributes?.whoWeAre?.map((data, index) => {
                         return <div key={index} className='mt-10'>

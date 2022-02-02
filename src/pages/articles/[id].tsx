@@ -76,7 +76,7 @@ export async function getStaticProps({ params }: { params: { id: string } }) {
             props: {
                 article: res.article.data,
             },
-            revalidate: 3600,
+            revalidate: 600,
         };
     } catch {
         return {

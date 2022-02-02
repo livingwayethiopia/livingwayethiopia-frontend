@@ -73,7 +73,7 @@ export async function getStaticProps({ }) {
       aboutUs: data.aboutUs.data,
       members: members,
     },
-    revalidate: 3600,
+    revalidate: 600,
   };
 }
 

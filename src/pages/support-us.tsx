@@ -81,6 +81,6 @@ export async function getStaticProps({ }) {
     props: {
       supportUs: data.supportUs.data,
     },
-    revalidate: 3600,
+    revalidate: 600,
   };
 }
