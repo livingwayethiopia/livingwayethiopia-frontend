@@ -41,13 +41,13 @@ const initialValues: {
   about: false,
   aboutUs: [],
   paths: [],
-  updateNavBar: () => { },
-  updateDrawerView: () => { },
-  updateIsSticky: () => { },
-  updateAbout: () => { },
-  updateLive: () => { },
-  updateFetchLive: () => { },
-  updateVideoId: () => { },
+  updateNavBar: () => {},
+  updateDrawerView: () => {},
+  updateIsSticky: () => {},
+  updateAbout: () => {},
+  updateLive: () => {},
+  updateFetchLive: () => {},
+  updateVideoId: () => {},
 };
 
 const NavBarContext = React.createContext(initialValues);
@@ -69,7 +69,8 @@ const NavBarProvider: React.FC = ({ children }) => {
     },
     {
       path: "/ministry",
-      name: process.env.NEXT_PUBLIC_LANGUAGE === "en" ? "MINISTRY" : "አገልግሎቶች",
+      name:
+        process.env.NEXT_PUBLIC_LANGUAGE === "en" ? "MINISTRIES" : "አገልግሎቶች",
     },
     {
       path: "/articles",
@@ -92,38 +93,50 @@ const NavBarProvider: React.FC = ({ children }) => {
       path: "/support us",
       name: process.env.NEXT_PUBLIC_LANGUAGE === "en" ? "LIVE" : "ቀትታ",
       button: true,
-      action: () => { },
+      action: () => {},
     },
   ]);
   const [aboutUs] = useState<aboutUsData[]>([
     {
-      name: 'Small Group',
-      path: '/smallGroup',
+      name:
+        process.env.NEXT_PUBLIC_LANGUAGE === "en"
+          ? "Small Group"
+          : "የመጽሐፍ ቅዱስ ጥናት ቡድኖች",
+      path: "/smallGroup",
       iconData: childrenIcon,
     },
     {
-      name: 'Children',
-      path: '/children',
+      name: process.env.NEXT_PUBLIC_LANGUAGE === "en" ? "Children" : "ሕፃናት",
+      path: "/children",
       iconData: childrenIcon,
     },
     {
-      name: 'Mission and Church planting',
-      path: '/missionAndChurchPlanting',
+      name:
+        process.env.NEXT_PUBLIC_LANGUAGE === "en"
+          ? "Mission and Church planting"
+          : "ሚስዮን እና የቤተክርስቲያን ተከላ",
+      path: "/missionAndChurchPlanting",
       iconData: seniorIcon,
     },
     {
-      name: 'Marriage and family',
-      path: '/marriageAndFamily',
+      name:
+        process.env.NEXT_PUBLIC_LANGUAGE === "en"
+          ? "Marriage and family"
+          : "ጋብቻ እና ቤተሰብ",
+      path: "/marriageAndFamily",
       iconData: seniorIcon,
     },
     {
-      name: 'Youth',
-      path: '/youth',
+      name: process.env.NEXT_PUBLIC_LANGUAGE === "en" ? "Youth" : "ወጣቶች",
+      path: "/youth",
       iconData: youthIcon,
     },
     {
-      name: 'Community outreach',
-      path: '/communityOutreach',
+      name:
+        process.env.NEXT_PUBLIC_LANGUAGE === "en"
+          ? "Community outreach"
+          : "የማህበረሰብ ተሳትፎዎች",
+      path: "/communityOutreach",
       iconData: seniorIcon,
     },
   ]);
