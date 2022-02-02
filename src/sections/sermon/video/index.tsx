@@ -42,6 +42,13 @@ const SingleVideo = ({ videos }: {
         setStart(startData);
         setEnd(endData);
         setCurrentVideos([...allVideos!.slice(startData, endData)])
+        let element: any = document.getElementById("videoRelated");
+        element.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+            inline: "nearest",
+        });
+
     }
 
     return (
@@ -82,7 +89,6 @@ const SingleVideo = ({ videos }: {
                     </>
                 }
             </div>
-
             {video && <div className='w-full py-10 description ' >
                 <p className='mb-2 text-lg'>
                     Description
@@ -91,6 +97,7 @@ const SingleVideo = ({ videos }: {
                     {video.snippet.description}
                 </p>
             </div>}
+            <div id="videoRelated" />
             <div className=' shadow-sm ' style={{ background: theme.colors.background }}  >
                 <p className='text-2xl pl-5 pt-3'>
                     Related Videos
