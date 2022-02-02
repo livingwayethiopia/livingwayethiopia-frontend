@@ -18,7 +18,7 @@ const AboutUsContainer = ({
       <div className="topPart ">
         <div className="tabs">
           <TabContainer
-            className="text-md sm:text-2xl"
+            className="text-sm sm:text-xl lg:text-2xl"
             active={tap === 0}
             onClick={() => {
               setTap(0);
@@ -35,7 +35,7 @@ const AboutUsContainer = ({
               : "እኛ ማን ነን"}
           </TabContainer>
           <TabContainer
-            className="text-md sm:text-2xl"
+            className="text-sm sm:text-xl lg:text-2xl"
             active={tap === 1}
             onClick={() => {
               setTap(1);
@@ -52,7 +52,7 @@ const AboutUsContainer = ({
               : "የእምነት አቋማችን"}
           </TabContainer>
           <TabContainer
-            className="text-md sm:text-2xl"
+            className="text-sm sm:text-xl lg:text-2xl"
             active={tap === 2}
             onClick={() => {
               setTap(2);

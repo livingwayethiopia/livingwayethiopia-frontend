@@ -44,7 +44,6 @@ export const EventContainer = styled.div`
 `;
 export const Title = styled.p`
   font-weight: 600;
-  font-size: 50px;
   line-height: 50px;
   text-align: center;
   letter-spacing: -0.5px;

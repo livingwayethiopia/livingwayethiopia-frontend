@@ -18,14 +18,15 @@ export const SermonContainer = styled.div`
     position: fixed;
     gap: 10px;
     width: 100%;
-    height: 107.5px;
     z-index: 15;
     background-color: ${theme.colors.background_secondary};
     flex-direction: column;
-    ${cssSnippets.padding}
     .tabs {
       display: flex;
+      justify-content: space-around;
+      padding-top: 2.5px;
       gap: 30px;
+      ${cssSnippets.padding}
     }
     .divider {
       width: 100%;

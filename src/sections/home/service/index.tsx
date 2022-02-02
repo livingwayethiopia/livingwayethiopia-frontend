@@ -11,7 +11,7 @@ interface ServiceDataType {
 const ServiceSection = ({ serviceData }: { serviceData: Maybe<ComponentHomepageServiceTime>[] }) => {
   return (
     <ServiceContainer >
-      <Title className="mb-10 mt-14">
+      <Title className="text-3xl mb-10 mt-14">
         {process.env.NEXT_PUBLIC_LANGUAGE === "en"
           ? "Service Times"
           : "የአገልግሎት ሰዓት"}

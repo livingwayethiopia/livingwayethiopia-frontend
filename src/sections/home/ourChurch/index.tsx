@@ -12,7 +12,7 @@ import { UploadFileEntity } from "../../../types/strapi";
 const OurCurchSection = ({ images }: { images: UploadFileEntity[] }) => {
   return (
     <OurCurchContainer>
-      <Title className="mb-10 mt-14">
+      <Title className="text-3xl mb-10 mt-14">
         {process.env.NEXT_PUBLIC_LANGUAGE === "en"
           ? "Our Church"
           : "ቤተክርስቲያናችን"}

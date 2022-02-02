@@ -98,7 +98,7 @@ const Drawer = () => {
                     <button className='buttonContainer' onClick={() => {
                         window.open(`https://youtube.com/channel/${process.env.NEXT_PUBLIC_YOUTUBECHANNELID}`, '_blank');
                     }}>
-                        Live
+                        {process.env.NEXT_PUBLIC_LANGUAGE === "en" ? "LIVE" : "ቀትታ"}
                         <div style={{ width: 20, height: 20 }}>
                             <Image loading="eager" width={20} height={20} src="/icons/live.svg" alt="live" />
                         </div>

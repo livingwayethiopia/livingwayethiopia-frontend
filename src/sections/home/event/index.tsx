@@ -51,7 +51,7 @@ const EventSection = ({ images }: { images: UploadFileEntity[] }) => {
   return (
     <>
       <EventContainer>
-        <Title className="mb-10 mt-14">
+        <Title className="text-3xl mb-10 mt-14">
           {process.env.NEXT_PUBLIC_LANGUAGE === "en" ? "Events" : "ዝግጅቶች"}
         </Title>
       </EventContainer>
