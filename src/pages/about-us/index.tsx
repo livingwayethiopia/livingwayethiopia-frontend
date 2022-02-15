@@ -17,8 +17,8 @@ export default AboutUS
 
 export async function getStaticProps({ }) {
   const query = gql`
-  query Query {
-    aboutUs {
+  query Query($locale: I18NLocaleCode) {
+    aboutUs(locale: $locale) {
       data {
         attributes {
           churchStaff {
