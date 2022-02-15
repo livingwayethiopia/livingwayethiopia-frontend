@@ -10,4 +10,8 @@ export const LayoutContainer = styled.header<LayoutContainerData>`
   height: 100vh;
   width: 100vw;
   overflow-x: hidden;
+  li {
+    list-style-type: circle;
+    margin-left: 20px;
+  }
 `;

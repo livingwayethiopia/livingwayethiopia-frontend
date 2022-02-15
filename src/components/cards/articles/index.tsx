@@ -5,8 +5,7 @@ import DateComponent from '../../dateComponent';
 import { ArticleEntity } from '../../../types/strapi';
 import { useRouter } from 'next/router';
 import ReactHtmlParser from 'react-html-parser';
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
+import { marked } from "marked";
 
 const ArticleCard = ({ article }: { article: ArticleEntity }) => {
     const router = useRouter();
@@ -28,9 +27,12 @@ const ArticleCard = ({ article }: { article: ArticleEntity }) => {
             {ReactHtmlParser(article.attributes?.title!)}
         </p>
         <DateComponent date={article.attributes?.publishedAt} />
-        <ReactMarkdown remarkPlugins={[[remarkGfm]]} className='articleDescription'>
-            {`${article.attributes?.content?.slice(0, 300)!}...`}
-        </ReactMarkdown>
+        <p className='articleDescription'>
+
+            {article!.attributes!.content! && ReactHtmlParser(marked.parse(
+                `${article!.attributes!.content!.slice(0, 300)!}...`
+            ))}
+        </p>
     </CardContainer>
 
 

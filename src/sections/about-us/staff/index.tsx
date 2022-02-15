@@ -23,11 +23,12 @@ const Staffs = ({
         {members.map((data, index) => {
           return (
             <div
-              className="flex-col flex justify-center items-center py-3 bg-slate-50 shadow-sm  hover:shadow-md rounded-lg "
+              className="flex-col flex justify-center items-center pb-3 overflow-hidden shadow-sm  hover:shadow-md rounded-lg "
+              style={{ background: `${theme.colors.secondary}11` }}
               key={index}
             >
               <div
-                className="relative  overflow-hidden imageCard "
+                className="relative overflow-hidden imageCard "
                 style={{ borderColor: theme.colors.text, width: "100%" }}
               >
                 <ImageContainer
@@ -44,7 +45,7 @@ const Staffs = ({
               </div>
               <div className="mt-2 text-center flex flex-col">
                 <span
-                  className=" text-lg font-bold"
+                  className=" text-lg font-extrabold"
                   style={{ color: theme.colors.text }}
                 >
                   {data.name}

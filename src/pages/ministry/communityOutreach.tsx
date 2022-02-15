@@ -17,9 +17,9 @@ export default CommunityOutReachMinistry
 
 
 export async function getStaticProps({ }) {
-  const query = gql`
-  query Query {
-    communityOutReach {
+  const query = gql` 
+    query Query($locale: I18NLocaleCode) {
+      communityOutReach(locale: $locale) {     
       data {
         attributes {
           vocationalYouthTrainings {

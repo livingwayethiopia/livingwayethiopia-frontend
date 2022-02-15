@@ -6,8 +6,6 @@ import {
   CommunityOutReachEntity,
 } from "../../../types/strapi";
 import { Container, ImageContainer, TabContainer } from "./style";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import CommunityContainer from "./community";
 
 const CommunityOutReach = ({

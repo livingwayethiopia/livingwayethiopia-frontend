@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Container, ImageContainer } from "./style";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import {
   ComponentGlobalDetailedContainer,
   Maybe,
 } from "../../../../types/strapi";
+import { marked } from "marked";
+import ReactHtmlParser from 'react-html-parser';
 
 const CommunityContainer = ({
   community,
@@ -18,7 +18,7 @@ const CommunityContainer = ({
         if (index === 0)
           return (
             <div className="flex flex-col gap-y-3 my-4" key={index}>
-              <div
+              {data?.media?.data?.attributes?.url! && <div
                 className="relative w-full rounded-lg overflow-hidden "
                 style={{ height: "500px" }}
               >
@@ -37,22 +37,19 @@ const CommunityContainer = ({
                   quality={100}
                   alt="video-Image"
                 />
-              </div>
-              <p className="text-3xl my-2 md:my-4 ">{data?.title}</p>
-              <ReactMarkdown
-                remarkPlugins={[[remarkGfm]]}
-                className="text-gray-900 "
-              >
-                {data?.detail!}
-              </ReactMarkdown>
+              </div>}
+              {data?.title && <p className="text-3xl my-2 md:my-4 ">{data?.title}</p>}
+              {data?.detail! && <p className="text-gray-900 ">
+                {ReactHtmlParser(marked.parse(data?.detail!))}
+              </p>}
             </div>
           );
         else
           return (
             <div className="flex flex-col gap-y-3 items-start my-4" key={index}>
-              <div>
+              {data?.title && <div>
                 <p className="text-3xl  my-4 font-black">{data?.title}</p>
-              </div>
+              </div>}
               <div
                 className="flex flex-wrap-reverse gap-y-5 w-full"
                 style={{
@@ -62,40 +59,40 @@ const CommunityContainer = ({
                 }}
               >
                 <div
-                  className="w-full md:w-7/12 "
+                  className={
+                    data?.media?.data?.attributes?.url! ?
+                      "w-full md:w-7/12 " : "w-full"}
                   style={{
-                    paddingLeft: index % 2 === 0 ? "1.5rem" : "0",
+                    paddingLeft: index % 2 === 0 && data?.media?.data?.attributes?.url! ? "1.5rem" : "0",
                     paddingRight: index % 2 === 0 ? 0 : "1.5rem",
                   }}
                 >
-                  <ReactMarkdown
-                    remarkPlugins={[[remarkGfm]]}
-                    className="text-gray-900 "
-                  >
-                    {data?.detail!}
-                  </ReactMarkdown>
+                  {data?.detail! && <p className="text-gray-900 ">
+                    {ReactHtmlParser(marked.parse(data?.detail!))}
+                  </p>}
+
                 </div>
 
-                <div
-                  className="w-full relative md:w-5/12 rounded-lg overflow-hidden "
-                  style={{ height: "500px" }}
-                >
-                  <ImageContainer
-                    loading="lazy"
-                    placeholder="blur"
-                    blurDataURL={
-                      process.env.NEXT_PUBLIC_STRAPI_ENDPOINT +
-                      data?.media?.data?.attributes?.url!
-                    }
-                    src={
-                      process.env.NEXT_PUBLIC_STRAPI_ENDPOINT +
-                      data?.media?.data?.attributes?.url!
-                    }
-                    layout="fill"
-                    quality={100}
-                    alt="video-Image"
-                  />
-                </div>
+                {data?.media?.data?.attributes?.url! &&
+                  <div
+                    className="w-full relative md:w-5/12 rounded-lg overflow-hidden "
+                    style={{ height: "500px" }}
+                  ><ImageContainer
+                      loading="lazy"
+                      placeholder="blur"
+                      blurDataURL={
+                        process.env.NEXT_PUBLIC_STRAPI_ENDPOINT +
+                        data?.media?.data?.attributes?.url!
+                      }
+                      src={
+                        process.env.NEXT_PUBLIC_STRAPI_ENDPOINT +
+                        data?.media?.data?.attributes?.url!
+                      }
+                      layout="fill"
+                      quality={100}
+                      alt="video-Image"
+                    />
+                  </div>}
               </div>
             </div>
           );

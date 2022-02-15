@@ -3,23 +3,25 @@ import Image from "next/image";
 import { Container, ImageContainer, SliderContainer } from "./style";
 import { theme } from "../../../styles/theme";
 import { Maybe } from "../../../types/strapi";
-import ReactHtmlParser from "react-html-parser";
-
+import { marked } from "marked";
+import ReactHtmlParser from 'react-html-parser';
 interface backgroundType {
   image: string | undefined;
   text: Maybe<string> | undefined;
 }
 const BackgroundInfo = ({ background }: { background: backgroundType }) => {
   return (
-    <Container className="sm:pt-10">
+    <Container className="sm:pt-10 pb-32">
       <div className="relative ">
         <div className="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-12 items-start">
           <div className="lg:col-start-1 ">
             <p
-              className="mt-2 text-sm font-thin"
+              className="mt-2 text-md font-normal"
               style={{ color: theme.colors.text }}
             >
-              {ReactHtmlParser(background.text!)}
+              {background.text! && <p className='articleDescription'>
+                {ReactHtmlParser(marked.parse(background.text!))}
+              </p>}
             </p>
           </div>
           <div

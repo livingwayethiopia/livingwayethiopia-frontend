@@ -11,6 +11,10 @@ export const Container = styled.div`
   flex-direction: column;
   position: relative;
   ${cssSnippets.padding}
+  li {
+    list-style-type: circle;
+    margin-left: 20px;
+  }
 `;
 
 export const ImageContainer = styled(Image)`

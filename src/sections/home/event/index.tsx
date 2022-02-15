@@ -17,31 +17,25 @@ const EventSection = ({ images }: { images: UploadFileEntity[] }) => {
     breakpoints: {
       "(min-width: 560px)": {
         slides: {
-          perView: images.length >= 2 ? 2 : images.length,
+          perView: images.length >= 1 ? 1 : images.length,
           spacing: 10,
         },
       },
-      "(min-width: 700px)": {
+      "(min-width: 800px)": {
+        slides: {
+          perView: images.length >= 2 ? 2 : images.length,
+          spacing: 15,
+        },
+      },
+      "(min-width: 1100px)": {
         slides: {
           perView: images.length >= 3 ? 3 : images.length,
           spacing: 15,
         },
       },
-      "(min-width: 1000px)": {
+      "(min-width: 1400px)": {
         slides: {
           perView: images.length >= 4 ? 4 : images.length,
-          spacing: 15,
-        },
-      },
-      "(min-width: 1600px)": {
-        slides: {
-          perView: images.length >= 6 ? 6 : images.length,
-          spacing: 15,
-        },
-      },
-      "(min-width: 2100px)": {
-        slides: {
-          perView: images.length >= 8 ? 8 : images.length,
           spacing: 15,
         },
       },

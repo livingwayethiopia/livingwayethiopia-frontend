@@ -2,8 +2,8 @@ import React from "react";
 import { theme } from "../../../styles/theme";
 import { AboutUsEntity } from "../../../types/strapi";
 import { Container, ImageContainer } from "./style";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+import ReactHtmlParser from 'react-html-parser';
+import { marked } from "marked";
 
 const Beliefs = ({ aboutUs }: { aboutUs: AboutUsEntity }) => {
   return (
@@ -13,7 +13,7 @@ const Beliefs = ({ aboutUs }: { aboutUs: AboutUsEntity }) => {
           <div className="flex flex-wrap ">
             {aboutUs?.attributes?.ourBeliefs?.media?.data?.attributes?.url! && (
               <div className="w-0 md:w-4/12 rounded-lg overflow-hidden">
-                <div className="relative w-full " style={{ height: "100%", minHeight: "80vh" }}>
+                <div className="relative w-full " style={{ height: "100%", maxHeight: 600, minHeight: "80vh" }}>
                   <ImageContainer
                     loading="lazy"
                     placeholder="blur"
@@ -80,12 +80,11 @@ const Beliefs = ({ aboutUs }: { aboutUs: AboutUsEntity }) => {
                   </span>
                 </h2>
               </div>
-              <ReactMarkdown
-                remarkPlugins={[[remarkGfm]]}
+              {aboutUs?.attributes?.ourBeliefs?.detail! && <p
                 className=" text-left"
               >
-                {aboutUs?.attributes?.ourBeliefs?.detail!}
-              </ReactMarkdown>
+                {ReactHtmlParser(marked.parse(aboutUs?.attributes?.ourBeliefs?.detail!))}
+              </p>}
             </div>
           </div>
         </div>

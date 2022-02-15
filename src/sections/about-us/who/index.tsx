@@ -3,8 +3,8 @@ import React from 'react';
 import { theme } from '../../../styles/theme';
 import { AboutUsEntity } from '../../../types/strapi';
 import { Container, ImageContainer } from './style';
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
+import ReactHtmlParser from 'react-html-parser';
+import { marked } from "marked";
 
 
 const WhoWeAre = ({ aboutUs, }:
@@ -15,24 +15,23 @@ const WhoWeAre = ({ aboutUs, }:
             <div className="mt-10">
                 {aboutUs?.attributes?.whoWeAre &&
                     aboutUs?.attributes?.whoWeAre?.map((data, index) => {
-                        return <div key={index} className='mt-10'>
+                        return <div key={index} className='mt-5'>
                             <p className='text-3xl font-extrabold mb-5'>{data?.Title}</p>
-                            <div className={data?.detail?.length! > 1 ? "grid gap-x-6 gap-y-2 justify-between row-gap-10 mx-auto lg:grid-cols-2" : ""}>
+                            <div className={data?.detail?.length! > 1 ? "grid gap-x-6 gap-y-1 justify-between row-gap-10 mx-auto lg:grid-cols-2" : ""}>
                                 {data?.detail && data?.detail!.map((item, index) => {
-                                    return <div className="flex w-full" key={index}>
+                                    return <div className="flex w-full items-start " key={index}>
                                         {data?.detail?.length! > 1 && <div className="mr-4">
-                                            <div className="flex items-center justify-center w-8 h-8 mb-4 rounded-full bg-indigo-50" style={{ background: "#3FDBB1" }}>
-                                                <svg width="14" height="12" viewBox="0 0 26 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path fillRule="evenodd" clipRule="evenodd" d="M24.7066 3.51178L11.3734 19.8747C11.0451 20.2763 10.5876 20.4834 10.1267 20.4834C9.76097 20.4834 9.39351 20.3525 9.08604 20.0869L0.752606 12.8134C0.0342672 12.1869 -0.0822419 11.042 0.492729 10.2567C1.067 9.47399 2.11683 9.34564 2.83517 9.97335L9.93255 16.1668L22.2149 1.09489C22.8251 0.34264 23.8799 0.275286 24.5674 0.943709C25.2558 1.61083 25.3183 2.75953 24.7066 3.51178Z" fill="#fff" />
+                                            <div className="flex items-center justify-center w-8 h-8 mb-4 rounded-full bg-indigo-50" style={{ background: theme.colors.primary }}>
+                                                <svg width="12" height="12" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M11 21C16.5228 21 21 16.5228 21 11C21 5.47715 16.5228 1 11 1C5.47715 1 1 5.47715 1 11C1 16.5228 5.47715 21 11 21Z" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" stroke='#fff' />
+                                                    <path d="M11 13C12.1046 13 13 12.1046 13 11C13 9.89543 12.1046 9 11 9C9.89543 9 9 9.89543 9 11C9 12.1046 9.89543 13 11 13Z" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" stroke='#fff' />
                                                 </svg>
 
                                             </div>
                                         </div>}
-                                        <div className='pt-1 pr-10 sm:pr-2'>
-                                            <ReactMarkdown remarkPlugins={[[remarkGfm]]} >
-                                                {item?.content!}
-                                            </ReactMarkdown>
-                                        </div>
+                                        {item?.content! && <div className=' pr-10 sm:pr-2'>
+                                            {ReactHtmlParser(marked.parse(item?.content!))}
+                                        </div>}
                                     </div>
                                 })
                                 }

@@ -6,8 +6,8 @@ import Navigation from '../../../components/navigation';
 import dayjs from "dayjs";
 import LocalizedFormat from 'dayjs/plugin/localizedFormat';
 import { ArticleEntity } from '../../../types/strapi';
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
+import ReactHtmlParser from 'react-html-parser';
+import { marked } from "marked";
 dayjs.extend(LocalizedFormat)
 
 
@@ -55,9 +55,9 @@ const ArticleSection = ({ article }: { article: ArticleEntity }) => {
                         alt="podcast-Image"
                     />}
                 </div>
-                <ReactMarkdown remarkPlugins={[[remarkGfm]]} className='text-lg mt-2 mb-4 px-3 md:px-5 bodyText'>
-                    {data!.text!}
-                </ReactMarkdown>
+                {data!.text! && <p className='text-lg mt-2 mb-4 px-3 md:px-5 bodyText'>
+                    {ReactHtmlParser(marked.parse(data!.text!))}
+                </p>}
             </div>
         </ArticleContainer>
     );

@@ -4,6 +4,7 @@ import { theme } from "../../../../styles/theme";
 import { cssSnippets } from "../../../../styles/cssSnippets";
 export const Container = styled.div`
   ${cssSnippets.padding}
+  margin-bottom: 200px;
 `;
 
 export const ImageContainer = styled(Image)`

@@ -7,6 +7,7 @@ export const AudioContainer = styled.div`
   min-width: 300px;
   width: 100vw;
   position: relative;
+  padding-bottom: 100px;
   background: ${theme.colors.background_secondary};
   ${cssSnippets.padding}
   .bodyText {
