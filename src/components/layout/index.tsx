@@ -35,7 +35,6 @@ export default function Layout({ children, background, header = "Living Way Ethi
                 <main>
                     {children}
                 </main>
-                <Subscription />
                 <Footer />
             </LayoutContainer>
         </React.Fragment>

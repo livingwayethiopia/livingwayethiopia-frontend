@@ -8,6 +8,7 @@ import OurCurchSection from '../sections/home/ourChurch';
 import { request, gql } from 'graphql-request';
 import { HomepageEntity } from '../types/strapi';
 import WelcomeText from '../sections/home/welcomeText';
+import Subscription from '../components/subscription';
 
 const Home = ({ homePage }: { homePage: HomepageEntity }) => {
   return (
@@ -22,6 +23,8 @@ const Home = ({ homePage }: { homePage: HomepageEntity }) => {
         mission={homePage.attributes?.missionAndVision?.mission!}
       /> */}
       <OurCurchSection images={homePage.attributes?.ourChurchImage?.data!} />
+
+      <Subscription />
     </Layout>
   )
 }

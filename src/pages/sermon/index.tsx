@@ -1,9 +1,9 @@
-import type { NextPage } from 'next'
 import Layout from '../../components/layout';
 import SermonSection from '../../sections/sermons';
 import { theme } from '../../styles/theme';
 import Parser from 'rss-parser';
 import axios from 'axios';
+import Subscription from '../../components/subscription';
 
 let parser = new Parser();
 
@@ -12,6 +12,8 @@ const Sermon = ({ episodes, playlists }: any) => {
     return (
         <Layout header={"Sermon"} background={theme.colors.background_secondary} >
             <SermonSection episodes={episodes} playlists={playlists} />
+
+            <Subscription />
         </Layout>
     )
 

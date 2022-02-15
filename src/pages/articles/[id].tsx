@@ -2,6 +2,7 @@ import Layout from '../../components/layout'
 import ArticleSection from '../../sections/articles/article'
 import { request, gql } from 'graphql-request';
 import { ArticleEntity, } from '../../types/strapi';
+import Subscription from '../../components/subscription';
 
 
 const Article = ({
@@ -10,6 +11,8 @@ const Article = ({
     return (
         <Layout header={`${article?.attributes?.title}`} >
             <ArticleSection article={article} />
+
+            <Subscription />
         </Layout>
     )
 }

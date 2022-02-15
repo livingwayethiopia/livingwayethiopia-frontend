@@ -4,6 +4,7 @@ import ArticleList from '../../sections/articles/list';
 import { theme } from '../../styles/theme';
 import { request, gql } from 'graphql-request';
 import { ArticleEntity } from '../../types/strapi';
+import Subscription from '../../components/subscription';
 
 const Articles = ({
     articles,
@@ -12,6 +13,8 @@ const Articles = ({
         <Layout header={"Articles"} background={theme.colors.background} >
             <div style={{ height: 80, width: "100%" }} />
             <ArticleList articles={articles} />
+
+            <Subscription />
         </Layout>
     )
 }

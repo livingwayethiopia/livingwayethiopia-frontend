@@ -12,25 +12,23 @@ const Staffs = ({
   return (
     <Container className="mt-10">
       <p
-        className="sm:mt-2 md:mt-9 text-5xl py-3 font-sans font-thin tracking-widest text-center mb-10"
-        style={{ color: "#EA3A60" }}
+        className="sm:mt-2 md:mt-9 text-6xl py-3  font-extraBold tracking-widest text-center mb-10"
+        style={{ color: theme.colors.primary }}
       >
         {process.env.NEXT_PUBLIC_LANGUAGE === "en"
-          ? HtmlParser(`   Main Church Staff
-        <br />
-        And leaders`)
+          ? HtmlParser(`Our Team`)
           : "የቤተክርስቲያን አገልጋዮች"}
       </p>
-      <div className="rounded-lg grid grid-cols-2 2xl:grid-cols-4 lg:grid-cols-3  gap-4 py-2">
+      <div className="rounded-lg grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-4 py-2">
         {members.map((data, index) => {
           return (
             <div
-              className="flex-col flex justify-center items-center py-3 hover:bg-slate-50 hover:shadow-md rounded-lg "
+              className="flex-col flex justify-center items-center py-3 bg-slate-50 shadow-sm  hover:shadow-md rounded-lg "
               key={index}
             >
               <div
-                className="relative rounded-full h-36 w-36 overflow-hidden border-2 "
-                style={{ borderColor: theme.colors.text }}
+                className="relative  overflow-hidden imageCard "
+                style={{ borderColor: theme.colors.text, width: "100%" }}
               >
                 <ImageContainer
                   loading="lazy"
