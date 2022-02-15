@@ -12,30 +12,18 @@ export const FooterContainer = styled.div`
 
   min-width: 320px;
   ${cssSnippets.padding}
-  background-color: ${theme.colors.background};
-
+  background-color: ${theme.colors.footer_background};
   .bottom {
     width: 100%;
-    align-self: flex-end;
     p {
       font-size: 14px;
       line-height: 18px;
-      color: ${theme.colors.text};
+      color: ${theme.colors.white};
     }
   }
-  .upper {
-    width: 100vw;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: start;
-    grid-column-gap: 35px;
-    grid-row-gap: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
   .divider {
-    width: 90%;
-    margin-left: 5%;
+    width: 100%;
+    /* margin-left: 5%; */
     margin-bottom: 20px;
     margin-top: 20px;
     justify-self: center;
@@ -44,53 +32,10 @@ export const FooterContainer = styled.div`
   }
 `;
 
-export const MapContainer = styled.div`
-  width: 600px;
-  min-width: 320px;
-  @media (min-width: 1700px) {
-    width: 750px;
-  }
-  @media (max-width: 1324px) {
-    width: 600px;
-  }
-  @media (max-width: 1224px) {
-    width: 575px;
-  }
-  @media (max-width: 1053px) {
-    width: 500px;
-  }
-  @media (max-width: 953px) {
-    width: 450px;
-  }
-  @media (max-width: 865px) {
-    width: 400px;
-  }
-  @media (max-width: 834px) {
-    width: 95vw;
-  }
-  @media (max-width: ${theme.breakpoints.SM}px) {
-    width: calc(100vw - 40px);
-  }
-  height: 100%;
-  background: #123;
-  display: flex;
-`;
-
 export const TextContainer = styled.div`
-  width: 400px;
-  @media (max-width: 953px) {
-    width: 350px;
-  }
-  @media (max-width: 834px) {
-    width: 95vw;
-  }
-  @media (max-width: ${theme.breakpoints.SM}px) {
-    width: calc(100vw - 40px);
-  }
-  color: ${theme.colors.secondary};
+  color: ${theme.colors.white};
   display: flex;
   flex-direction: column;
-  gap: 7.5px;
   .title {
     width: 100%;
     margin: 0px;
@@ -121,12 +66,13 @@ export const TextContainer = styled.div`
     cursor: pointer;
     margin-top: 20px;
     display: flex;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     gap: 20px;
     svg {
-      fill: ${theme.colors.secondary};
+      fill: ${theme.colors.white};
       :hover {
-        fill: ${theme.colors.primary};
+        fill: ${theme.colors.muted};
       }
     }
   }

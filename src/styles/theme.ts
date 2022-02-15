@@ -20,6 +20,7 @@ export const theme = {
     third: "#252E4F",
     background: "#F9FAFC", // body background color
     background_secondary: "#FFFFFF", // secondary background color
+    footer_background: "#0C2340",
     passive_background: "#343F50",
     text: "#0F2137",
     text_secondary: "#343D48",
