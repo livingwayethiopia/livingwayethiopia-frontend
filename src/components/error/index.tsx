@@ -13,7 +13,7 @@ const ErrorPage = () => {
                     </h1>
                     <p className="my-2 text-gray-800 text-2xl font-black">Some thing went wrong.
                         <br />
-                        <span className='text-xl font-thin'>
+                        <span className='text-xl font-normal'>
                             Try reloading the Page. To fix the issue.
                         </span></p>
                     <button className="sm:w-full lg:w-auto my-2 border rounded md py-2 px-8 text-center  focus:outline-none focus:ring-2 text-white focus:ring-indigo-700 focus:ring-opacity-50 text-xl" style={{ background: theme.colors.primary }} onClick={() => {

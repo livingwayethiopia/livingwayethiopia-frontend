@@ -62,7 +62,7 @@ export const SliderContainer = styled.div`
     transition: height 0.3s;
   }
   .customSlider {
-    height: 300px;
+    height: 400px;
     border-radius: 9px;
     width: 400px;
     overflow: hidden;

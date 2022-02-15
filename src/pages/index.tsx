@@ -7,18 +7,20 @@ import Vision from '../sections/home/vision';
 import OurCurchSection from '../sections/home/ourChurch';
 import { request, gql } from 'graphql-request';
 import { HomepageEntity } from '../types/strapi';
+import WelcomeText from '../sections/home/welcomeText';
 
 const Home = ({ homePage }: { homePage: HomepageEntity }) => {
   return (
     <Layout header={homePage?.attributes?.seo?.title!} >
       <Welcome hero={homePage.attributes?.heroImage?.data?.attributes?.url!} title={homePage.attributes?.heroTitle!} description={homePage.attributes?.heroDescription!} />
+      <WelcomeText />
       <ServiceSection serviceData={homePage.attributes?.serviceTime!} />
       <EventSection images={homePage.attributes?.events?.data!} />
-      <Vision
+      {/* <Vision
         vision={homePage.attributes?.missionAndVision?.vision!}
         image={homePage.attributes?.visionAndValueImage?.data?.attributes?.url!}
         mission={homePage.attributes?.missionAndVision?.mission!}
-      />
+      /> */}
       <OurCurchSection images={homePage.attributes?.ourChurchImage?.data!} />
     </Layout>
   )
@@ -78,7 +80,6 @@ export async function getStaticProps({ }) {
               mission
               vision
             }
-            publishedAt
           }
         }
       }

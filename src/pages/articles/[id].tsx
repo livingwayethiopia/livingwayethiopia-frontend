@@ -53,7 +53,6 @@ export async function getStaticProps({ params }: { params: { id: string } }) {
                     attributes {
                         title
                         content
-                        publishedAt
                         image {
                             data {
                                 attributes {

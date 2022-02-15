@@ -27,7 +27,7 @@ export const MainContainer = styled.div<DrawerViewType>`
   display: flex;
   flex-direction: column;
   transition: all 0.4s ease;
-  @media (min-width: ${theme.breakpoints.XMd}px) {
+  @media (min-width: 1023px) {
     display: none;
   }
   font-weight: normal;

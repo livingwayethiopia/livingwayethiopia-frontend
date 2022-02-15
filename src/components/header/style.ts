@@ -54,7 +54,7 @@ export const Detail = styled.div`
 `;
 
 export const FullScreenComponent = styled.div<FullComponentType>`
-  @media (max-width: 919px) {
+  @media (max-width: 1023px) {
     display: none;
   }
   display: flex;
@@ -65,7 +65,7 @@ export const NavLink = styled.span<NavLinkType>`
   margin-left: 12.5px;
   margin-right: 12.5px;
   font-size: 14px;
-  font-weight: ${(props) => (props.active ? "bold" : 100)};
+  font-weight: ${(props) => (props.active ? "bold" : 500)};
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
   -khtml-user-select: none; /* Konqueror HTML */
@@ -125,7 +125,7 @@ export const MobileScreenComponent = styled.div`
   justify-self: center;
   align-self: center;
   overflow: hidden;
-  @media (min-width: 920px) {
+  @media (min-width: 1024px) {
     display: none;
   }
   .navBar {

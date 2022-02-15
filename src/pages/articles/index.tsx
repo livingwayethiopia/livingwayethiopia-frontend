@@ -29,7 +29,6 @@ export async function getStaticProps({ }) {
                         content
                         createdAt
                         updatedAt
-                        publishedAt
                         locale
                         image {
                             data {
