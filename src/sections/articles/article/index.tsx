@@ -33,7 +33,7 @@ const ArticleSection = ({ article }: { article: ArticleEntity }) => {
     <ArticleContainer className="mt-20">
       <Navigation routeData="/articles" />
       <div className="px-0 md:px-10">
-        <p className="text-4xl font-extrabold mt-4">{data.title}</p>
+        <p className="text-2xl sm:text-4xl font-extrabold mt-4">{data.title}</p>
         <p className="text-md font-extralight font-sans mt-2 mb-4">
           Published on{" "}
           <span className="underline underline-offset-1 ">
