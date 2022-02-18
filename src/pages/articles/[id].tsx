@@ -9,7 +9,11 @@ const Article = ({
     article,
 }: { article: ArticleEntity }) => {
     return (
-        <Layout header={`${article?.attributes?.title}`} >
+        <Layout header={`${article?.attributes?.title}`}
+            headerImage={process.env.NEXT_PUBLIC_STRAPI_ENDPOINT + article.attributes?.image?.data?.attributes?.url!}
+            headerTitle={article.attributes?.title}
+            headerDescription={article.attributes?.content}
+        >
             <ArticleSection article={article} />
 
             <Subscription />

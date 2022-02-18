@@ -22,7 +22,7 @@ const ArticleCard = ({ article }: { article: ArticleEntity }) => {
                 alt="article-Image"
             />
         </div>
-        <p className='articleTitle'>
+        <p className='articleTitle text-xl sm:text-2xl'>
 
             {ReactHtmlParser(article.attributes?.title!)}
         </p>
