@@ -22,7 +22,7 @@ const CommunityOutReach = ({
       <div className="CommunityOutReachTopPart ">
         <div className="CommunityOutReachTabs">
           <TabContainer
-            className="text-sm  md:text-xl font-light font-sans"
+            className="text-md  md:text-xl font-light font-sans"
             active={tap === 0}
             onClick={() => {
               setTap(0);
@@ -40,7 +40,7 @@ const CommunityOutReach = ({
               : "ሁለንተናዊ የሕፃናት ድጋፍ"}
           </TabContainer>
           <TabContainer
-            className="text-sm   md:text-xl font-light font-sans"
+            className="text-md   md:text-xl font-light font-sans"
             active={tap === 1}
             onClick={() => {
               setTap(1);
@@ -58,7 +58,7 @@ const CommunityOutReach = ({
               : "ሴቶችን ማብቃት"}
           </TabContainer>
           <TabContainer
-            className="text-sm   md:text-xl  font-light font-sans"
+            className="text-md   md:text-xl  font-light font-sans"
             active={tap === 2}
             onClick={() => {
               setTap(2);

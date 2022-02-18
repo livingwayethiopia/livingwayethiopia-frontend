@@ -2,7 +2,7 @@ import React from "react";
 import { theme } from "../../../styles/theme";
 import { AboutUsEntity } from "../../../types/strapi";
 import { Container, ImageContainer } from "./style";
-import ReactHtmlParser from 'react-html-parser';
+import ReactHtmlParser from "react-html-parser";
 import { marked } from "marked";
 
 const Beliefs = ({ aboutUs }: { aboutUs: AboutUsEntity }) => {
@@ -13,7 +13,10 @@ const Beliefs = ({ aboutUs }: { aboutUs: AboutUsEntity }) => {
           <div className="flex flex-wrap ">
             {aboutUs?.attributes?.ourBeliefs?.media?.data?.attributes?.url! && (
               <div className="w-0 md:w-4/12 rounded-lg overflow-hidden">
-                <div className="relative w-full " style={{ height: "100%", maxHeight: 600, minHeight: "80vh" }}>
+                <div
+                  className="relative w-full "
+                  style={{ height: "100%", maxHeight: 600, minHeight: "80vh" }}
+                >
                   <ImageContainer
                     loading="lazy"
                     placeholder="blur"
@@ -67,7 +70,9 @@ const Beliefs = ({ aboutUs }: { aboutUs: AboutUsEntity }) => {
                       />
                     </svg>
                     <span className="relative text-5xl py-3 font-sans ">
-                      {process.env.NEXT_PUBLIC_LANGUAGE === "en" ? "Our" : "የእምነት"}
+                      {process.env.NEXT_PUBLIC_LANGUAGE === "en"
+                        ? "Our"
+                        : "የእምነት"}
                     </span>
                   </span>{" "}
                   <span
@@ -80,11 +85,13 @@ const Beliefs = ({ aboutUs }: { aboutUs: AboutUsEntity }) => {
                   </span>
                 </h2>
               </div>
-              {aboutUs?.attributes?.ourBeliefs?.detail! && <p
-                className=" text-left"
-              >
-                {ReactHtmlParser(marked.parse(aboutUs?.attributes?.ourBeliefs?.detail!))}
-              </p>}
+              {aboutUs?.attributes?.ourBeliefs?.detail! && (
+                <p className="text-left text-lg">
+                  {ReactHtmlParser(
+                    marked.parse(aboutUs?.attributes?.ourBeliefs?.detail!)
+                  )}
+                </p>
+              )}
             </div>
           </div>
         </div>

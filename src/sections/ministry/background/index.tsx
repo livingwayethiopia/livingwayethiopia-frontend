@@ -4,7 +4,7 @@ import { Container, ImageContainer, SliderContainer } from "./style";
 import { theme } from "../../../styles/theme";
 import { Maybe } from "../../../types/strapi";
 import { marked } from "marked";
-import ReactHtmlParser from 'react-html-parser';
+import ReactHtmlParser from "react-html-parser";
 interface backgroundType {
   image: string | undefined;
   text: Maybe<string> | undefined;
@@ -19,26 +19,32 @@ const BackgroundInfo = ({ background }: { background: backgroundType }) => {
               className="mt-2 text-md font-normal"
               style={{ color: theme.colors.text }}
             >
-              {background.text! && <p className='articleDescription'>
-                {ReactHtmlParser(marked.parse(background.text!))}
-              </p>}
+              {background.text! && (
+                <p className="articleDescription">
+                  {ReactHtmlParser(marked.parse(background.text!))}
+                </p>
+              )}
             </p>
           </div>
           <div
             className="mt-10 relative lg:mt-0 lg:col-start-2"
             style={{ width: "100%", height: "100%", minHeight: 350 }}
           >
-            <ImageContainer
-              loading="lazy"
-              placeholder="blur"
-              blurDataURL={
-                process.env.NEXT_PUBLIC_STRAPI_ENDPOINT + background.image!
-              }
-              layout="fill"
-              alt="background image data"
-              quality={100}
-              src={process.env.NEXT_PUBLIC_STRAPI_ENDPOINT + background.image!}
-            />
+            {background.image && (
+              <ImageContainer
+                loading="lazy"
+                placeholder="blur"
+                blurDataURL={
+                  process.env.NEXT_PUBLIC_STRAPI_ENDPOINT + background.image!
+                }
+                layout="fill"
+                alt="background image data"
+                quality={100}
+                src={
+                  process.env.NEXT_PUBLIC_STRAPI_ENDPOINT + background.image!
+                }
+              />
+            )}
           </div>
         </div>
       </div>
