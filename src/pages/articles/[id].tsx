@@ -10,9 +10,9 @@ const Article = ({
 }: { article: ArticleEntity }) => {
     return (
         <Layout header={`${article?.attributes?.title}`}
-            headerImage={process.env.NEXT_PUBLIC_STRAPI_ENDPOINT + article.attributes?.image?.data?.attributes?.url!}
-            headerTitle={article.attributes?.title}
-            headerDescription={article.attributes?.content}
+            headerImage={article ? process.env.NEXT_PUBLIC_STRAPI_ENDPOINT + article.attributes?.image?.data?.attributes?.url! : `https://cms.livingwayethiopia.org/uploads/lw_25_b9516a3869.jpg`}
+            headerTitle={article ? article.attributes?.title : "Living Way Ethiopia"}
+            headerDescription={article ? article.attributes?.content : ""}
         >
             <ArticleSection article={article} />
 
