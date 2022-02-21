@@ -64,8 +64,7 @@ export const FullScreenComponent = styled.div<FullComponentType>`
 export const NavLink = styled.span<NavLinkType>`
   margin-left: 12.5px;
   margin-right: 12.5px;
-  font-size: 14px;
-  font-weight: ${(props) => (props.active ? "bold" : 500)};
+  /* font-weight: ${(props) => (props.active ? "bold" : 500)}; */
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
   -khtml-user-select: none; /* Konqueror HTML */
@@ -109,12 +108,10 @@ export const ButtonNav = styled.div`
     align-items: center;
     gap: 7.5px;
     border-radius: ${theme.boarder.radius}px;
-    font-size: 14px;
     text-decoration: none;
     border: 0px;
     color: ${theme.colors.white};
     background-color: ${theme.colors.secondary};
-    font-weight: 450;
     text-transform: capitalize;
     cursor: pointer;
     font-family: ${theme.fonts.body};

@@ -7,6 +7,7 @@ export const CardContainer = styled.div`
   cursor: pointer;
   border-radius: 9px;
   background-color: transparent;
+  overflow: hidden;
   /* background-color: ${theme.colors.background_secondary}; */
   display: flex;
   flex-direction: column;
@@ -23,7 +24,6 @@ export const CardContainer = styled.div`
   .articleTitle {
     margin: 0px;
     font-style: italic;
-    font-size: 28px;
     display: flex;
     align-items: center;
     color: ${theme.colors.text};

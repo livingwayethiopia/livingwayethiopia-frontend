@@ -21,7 +21,7 @@ const SmallGroupMinistry = ({ ministry }: { ministry: MinistryEntity }) => {
 
 export default SmallGroupMinistry;
 
-export async function getStaticProps({}) {
+export async function getStaticProps({ }) {
   const query = gql`
     query Query($locale: I18NLocaleCode) {
       ministry(locale: $locale) {
@@ -61,7 +61,6 @@ export async function getStaticProps({}) {
     query,
     variables
   );
-  console.log(data.ministry.data.attributes);
   return {
     props: {
       ministry: data.ministry.data,

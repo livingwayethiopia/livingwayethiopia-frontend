@@ -15,7 +15,7 @@ export const ArticleListContainer = styled.div`
   .articleCard {
     margin: 0px;
     width: calc(50% - 10px);
-    @media (max-width: ${theme.breakpoints.SMd}px) {
+    @media (max-width: ${theme.breakpoints.XMd}px) {
       width: 100%;
     }
   }

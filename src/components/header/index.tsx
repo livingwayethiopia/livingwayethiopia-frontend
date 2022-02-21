@@ -25,16 +25,18 @@ const Header = () => {
                         )
                         else
                             if (!data.button)
-                                return <NavLink isSticky={navbar.isSticky} key={index} active={router.asPath === data.path} onClick={() => {
-                                    navbar.updateNavBar(data.path);
-                                    router.push(data.path, undefined, { shallow: true })
-                                }}>
+                                return <NavLink
+                                    className='text-sm xl:text-lg'
+                                    isSticky={navbar.isSticky} key={index} active={router.asPath === data.path} onClick={() => {
+                                        navbar.updateNavBar(data.path);
+                                        router.push(data.path, undefined, { shallow: true })
+                                    }}>
                                     {data.name}
                                 </NavLink>
                             else if (data.button) {
                                 return <ButtonNav key={index} >
                                     <div className="border" />
-                                    <button className='buttonContainer' onClick={async () => {
+                                    <button className='buttonContainer text-sm xl:text-lg' onClick={async () => {
                                         window.open(`https://youtube.com/channel/${process.env.NEXT_PUBLIC_YOUTUBECHANNELID}`, '_blank');
                                     }}>
                                         {data.name}
