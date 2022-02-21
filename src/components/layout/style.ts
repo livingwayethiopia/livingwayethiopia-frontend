@@ -14,4 +14,9 @@ export const LayoutContainer = styled.header<LayoutContainerData>`
     list-style-type: circle;
     margin-left: 20px;
   }
+
+  @media (min-width: 630px) {
+    text-align: justify;
+    text-justify: inter-word;
+  }
 `;

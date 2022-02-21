@@ -16,7 +16,7 @@ const BackgroundInfo = ({ background }: { background: backgroundType }) => {
         <div className="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-12 items-start">
           <div className="lg:col-start-1 ">
             <p
-              className="mt-2 text-md font-normal"
+              className="mt-2 text-lg font-normal"
               style={{ color: theme.colors.text }}
             >
               {background.text! && (

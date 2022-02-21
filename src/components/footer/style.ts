@@ -72,7 +72,7 @@ export const TextContainer = styled.div`
     svg {
       fill: ${theme.colors.white};
       :hover {
-        fill: ${theme.colors.muted};
+        fill: ${theme.colors.primary};
       }
     }
   }

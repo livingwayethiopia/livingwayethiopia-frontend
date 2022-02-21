@@ -58,7 +58,7 @@ const ArticleSection = ({ article }: { article: ArticleEntity }) => {
           )}
         </div>
         {data!.text! && (
-          <p className="text-lg mt-2 mb-4 px-3 md:px-5 bodyText">
+          <p className="text-md mt-2 mb-4 px-3 md:px-5 bodyText">
             {ReactHtmlParser(marked.parse(data!.text!))}
           </p>
         )}

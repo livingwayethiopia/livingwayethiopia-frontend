@@ -36,7 +36,7 @@ const Footer = () => {
             <div className="multipleDetailText mt-2 mb-2 flex">
               <div className="left">
                 <p className="detailText">+251901777774</p>
-                <p className="detailText">+2519017777/75</p>
+                <p className="detailText">+251901777775</p>
               </div>
             </div>
           </div>
