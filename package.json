@@ -2,7 +2,7 @@
     "name": "livingwayethiopia-frontend",
     "private": true,
     "scripts": {
-        "dev": "clear && next dev",
+        "dev": "next dev",
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
