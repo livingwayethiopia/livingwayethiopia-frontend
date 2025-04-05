@@ -13,7 +13,7 @@ const Footer = () => {
             </p>
             <p className="detailText mt-2 mb-2">
               {process.env.NEXT_PUBLIC_LANGUAGE === "en"
-                ? "Behind the Exhibition Center and St. Joseph's School, around to Bole Flamingo Cafe"
+                ? "Behind the Exhibition Center and St. Joseph's School, around Bole Flamingo Cafe"
                 : "ቦሌ ፍላሚንጎ ካፌ ጋር ባለው ቅያስ ገባ ብሎ ኤግዚቢሽን ማዕከል እና ሴንት ጆሴፍ ት/ቤት ጀርባ"}
             </p>
           </div>
