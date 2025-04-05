@@ -13,8 +13,8 @@ const Footer = () => {
             </p>
             <p className="detailText mt-2 mb-2">
               {process.env.NEXT_PUBLIC_LANGUAGE === "en"
-                ? "Mekanisa kore condominium square, in front of Ethiopian defence war college"
-                : "መካኒሳ ቆሬ ኮንዶሚኒየም አደባባይ፣ የኢትዮጵያ መከላከያ ጦርነት ኮሌጅ ፊት ለፊት"}
+                ? "Behind the Exhibition Center and St. Joseph's School, around to Bole Flamingo Cafe"
+                : "ቦሌ ፍላሚንጎ ካፌ ጋር ባለው ቅያስ ገባ ብሎ ኤግዚቢሽን ማዕከል እና ሴንት ጆሴፍ ት/ቤት ጀርባ"}
             </p>
           </div>
           <div>
