@@ -15,10 +15,16 @@ export const FooterContainer = styled.div`
   background-color: ${theme.colors.footer_background};
   .bottom {
     width: 100%;
-    p {
+    p, a {
       font-size: 14px;
       line-height: 18px;
       color: ${theme.colors.white};
+    }
+    a {
+      transition: all 0.2s ease-in-out;
+      &:hover {
+        color: ${theme.colors.primary};
+      }
     }
   }
   .divider {

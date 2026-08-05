@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Link from "next/link";
 import MapDisplay from "./map";
 import { FooterContainer, TextContainer } from "./style";
 
@@ -129,12 +130,28 @@ const Footer = () => {
         </div>
       </TextContainer>
       <div className="divider" />
-      <div className="bottom flex w-full flex-wrap justify-center items-center gap-x-10 gap-y-2">
+      <div className="bottom flex w-full flex-wrap justify-between items-center gap-x-10 gap-y-4">
         <p>
           {process.env.NEXT_PUBLIC_LANGUAGE === "en"
             ? `Copyright © ${new Date().getFullYear()}, Living way Ethiopia. Power by etn.et`
             : `የቅጂ መብት © ${new Date().getFullYear()}, ህያው መንገድ ኢትዮጵያ። የተሰራው በ etn.et`}
         </p>
+        <div className="grid grid-cols-2 gap-4 sm:gap-6 items-center">
+          <Link href="/terms-and-conditions" passHref>
+            <a className="text-white hover:text-primary hover:underline transition-all text-sm font-medium">
+              {process.env.NEXT_PUBLIC_LANGUAGE === "en"
+                ? "Terms & Conditions"
+                : "ህጎች እና ሁኔታዎች"}
+            </a>
+          </Link>
+          <Link href="/privacy-policy" passHref>
+            <a className="text-white hover:text-primary hover:underline transition-all text-sm font-medium">
+              {process.env.NEXT_PUBLIC_LANGUAGE === "en"
+                ? "Privacy Policy"
+                : "የግላዊነት ፖሊሲ"}
+            </a>
+          </Link>
+        </div>
       </div>
     </FooterContainer>
   );
